@@ -1,0 +1,12 @@
+{
+  "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/plan-7-dni.pdf",
+      "headers": [
+        { "key": "Content-Type", "value": "application/pdf" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    }
+  ]
+}
