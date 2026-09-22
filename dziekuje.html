@@ -120,6 +120,13 @@ footer strong{color:#E9EDE5}
 .dl{display:block;text-align:center;font-family:'Karla',sans-serif;font-weight:800;font-size:15.5px;
  letter-spacing:1.5px;text-transform:uppercase;background:var(--ochre);color:#fff;
  padding:20px;border-radius:50px;text-decoration:none;box-shadow:0 14px 30px rgba(160,121,58,.3)}
+.mailbox{display:flex;gap:16px;align-items:center;background:var(--ochrelt);border-radius:18px;padding:22px 24px}
+.mailbox .mi{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;flex:0 0 52px;
+ border-radius:50%;background:var(--ochre);color:#fff}
+.mailbox .mi svg{width:26px;height:26px}
+.mailbox b{font-family:'Karla',sans-serif;font-size:17px;display:block;margin-bottom:2px;color:var(--ink)}
+.mailbox span{font-size:15px;color:var(--soft);line-height:1.6}
+.stp span a{color:var(--green2)}
 .steps{margin:34px 0 0}
 .stp{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--line)}
 .stp:last-child{border-bottom:none}
@@ -145,16 +152,14 @@ footer strong{color:#E9EDE5}
  .ty-top,.ty-body{padding:34px 26px}
  .nx{flex-direction:column;text-align:center}
 }
-</style><!-- PIKSEL META: wklej tu kod bazowy piksela z Menedżera zdarzeń, a pod nim zostaw linijkę z Lead -->
-<script>/* po wklejeniu kodu bazowego: */ if(window.fbq){ fbq('track','Lead'); }</script>
-<!-- Meta Pixel: wklej swój numer w miejsce TWOJ_PIXEL_ID (2 miejsca) -->
+</style><!-- Meta Pixel: wklej swój numer w miejsce TWOJ_PIXEL_ID (2 miejsca) -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
 n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
 document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','TWOJ_PIXEL_ID'); fbq('track','PageView');
+fbq('init','TWOJ_PIXEL_ID'); fbq('track','PageView'); fbq('track','Lead');
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=TWOJ_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
 </head><body>
@@ -162,15 +167,20 @@ fbq('init','TWOJ_PIXEL_ID'); fbq('track','PageView');
   <div class="ty-top">
     <span class="ic"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M8.4 12.3l2.5 2.5 4.7-5"/></svg></span>
     <h1>Gotowe. Plan jest w drodze.</h1>
-    <p>Wysłałyśmy go na Twojego maila. Powinien dojść w ciągu minuty —
-      ale możesz pobrać go też od razu, poniżej.</p>
+    <p>Wysłałyśmy go na Twojego maila. Otwórz wiadomość od Biegaj Wolno
+      i pobierz plan z linku w środku.</p>
   </div>
   <div class="ty-body">
-    <a class="dl" href="/plan-7-dni.pdf" download="Biegaj-Wolno_7-dni.pdf">Pobierz plan teraz (PDF)</a>
+    <div class="mailbox">
+      <span class="mi"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.2"/><path d="M3.8 7l8.2 6 8.2-6"/></svg></span>
+      <div><b>Sprawdź teraz skrzynkę</b>
+        <span>Mail przychodzi zwykle w ciągu kilku minut. Plan pobierzesz z linku w wiadomości.</span></div>
+    </div>
     <div class="steps">
       <div class="stp"><div class="n">1</div><div><b>Nie widzisz maila?</b>
-        <span>Zajrzyj do folderu „Oferty" albo „Spam". Jeśli tam jest — przenieś wiadomość
-          do głównej skrzynki, żeby kolejne dochodziły bez problemu.</span></div></div>
+        <span>Zajrzyj do zakładki „Oferty" albo do spamu i przenieś wiadomość do Głównej —
+          wtedy kolejne maile będą trafiać we właściwe miejsce. Nadal nic po kwadransie?
+          Napisz do nas na Instagramie <a href="https://www.instagram.com/biegajwolno/" target="_blank" rel="noopener">@biegajwolno</a>.</span></div></div>
       <div class="stp"><div class="n">2</div><div><b>Wydrukuj i powieś na lodówce</b>
         <span>To brzmi banalnie, a robi całą różnicę. Plan, który widzisz codziennie przy śniadaniu,
           wykonujesz. Plan schowany w folderze „Pobrane" — nie.</span></div></div>
