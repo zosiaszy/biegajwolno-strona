@@ -1,0 +1,5 @@
+# Strona główna -> darmowy plan (302 = tymczasowo; usuń tę linię, gdy na stronie głównej będzie ebook)
+/            /7-dni            302
+
+# Strona podziękowania pod ładnym adresem
+/dziekuje    /dziekuje.html    200

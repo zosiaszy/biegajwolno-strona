@@ -1,9 +1,8 @@
-# Biegaj Wolno — lead magnet „7 dni, żeby wstać z kanapy"
+# biegajwolno.pl
 
-- `index.html` — landing z formularzem (webhook Make + piksel Meta do uzupełnienia)
-- `dziekuje.html` — strona po zapisie, dostępna pod `/dziekuje`
-- `plan-7-dni.pdf` — plan do pobrania, dostępny pod `/plan-7-dni.pdf`
-- `vercel.json` — ładne adresy bez `.html` i nagłówki dla PDF-a
+- `7-dni/index.html` — landing darmowego planu → biegajwolno.pl/7-dni
+- `dziekuje.html` — strona po zapisie → biegajwolno.pl/dziekuje
+- `plan-7-dni.pdf` — plan → biegajwolno.pl/plan-7-dni.pdf
+- `_redirects` — reguły Netlify (strona główna tymczasowo prowadzi na /7-dni)
 
-Do uzupełnienia: `TWOJ-WEBHOOK-TUTAJ` (index.html) i `TWOJ_PIXEL_ID` (index.html, dziekuje.html).
-Pełna instrukcja: plik INSTRUKCJA.md w paczce.
+Gdy powstanie strona ebooka: wrzuć ją jako `index.html` w głównym folderze i usuń pierwszą regułę z `_redirects`.
