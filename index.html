@@ -1,0 +1,900 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Biegaj wolno, dojdź daleko — ebook dla początkujących biegaczek</title>
+<meta name="description" content="Ebook, który prowadzi Cię krok po kroku od pierwszego truchtu do półmaratonu. 109 stron, 9 rozdziałów, 60 źródeł naukowych. Cena premierowa 49 zł (zamiast 59 zł).">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23172619'/%3E%3Cpath d='M5,22.5 C5,19.5 7.5,17.3 10.5,16.5 L18,14.3 C20,13.7 22,14 23.5,15.3 L26.5,17.8 C27.6,18.7 27.4,20.4 26.1,21 L24.5,21.7 L24.5,23 C24.5,24 23.7,24.8 22.7,24.8 L7,24.8 C5.9,24.8 5,23.9 5,22.8 Z' fill='%23D2A24C'/%3E%3Cpath d='M18.5,15.5 L19.5,17.5' stroke='%23172619' stroke-width='0.9' stroke-linecap='round'/%3E%3Cpath d='M20.5,15.9 L21.4,17.7' stroke='%23172619' stroke-width='0.9' stroke-linecap='round'/%3E%3Cpath d='M22.4,16.6 L23.1,18.1' stroke='%23172619' stroke-width='0.9' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="ebook/scrollcraft.css">
+<style>
+  :root{
+    --sc-canvas:#172619; --sc-surface:#1E3020;
+    --sc-ink:#F4EEDF; --sc-ink-soft:#B9AF98;
+    --sc-accent:#D2A24C; --sc-accent-ink:#17130A;
+    --sc-font-display:"Fraunces","Work Sans",serif;
+    --sc-font-text:"Work Sans",system-ui,sans-serif;
+    --paper:#F6F0E2; --paper-ink:#221D14; --paper-ink-soft:#6B6252;
+    --ok:#2C7A45; --ok-bg:#DCE6DA; --no:#D33F2E; --no-bg:#F4E4DF;
+    --bar-h:72px;
+  }
+  @media (max-width:600px){ :root{ --bar-h:92px; } }
+
+  ::selection{background:var(--sc-accent);color:var(--sc-accent-ink);}
+  body{ padding-top:var(--bar-h); }
+  h1,h2,h3{ text-wrap:balance; }
+  p{ text-wrap:pretty; }
+
+  /* ---- shared type ---- */
+  .eyebrow{
+    font-family:var(--sc-font-text); font-size:var(--sc-t-sm); font-weight:700;
+    letter-spacing:var(--sc-track-wide); text-transform:uppercase; color:var(--sc-accent);
+    margin:0 0 var(--sc-3);
+  }
+  .paper .eyebrow{ color:var(--ok); }
+  .sc-display{ font-weight:500; }
+  em.voice{ font-style:italic; font-family:var(--sc-font-display); }
+
+  .chip-row{ display:flex; flex-wrap:wrap; gap:var(--sc-3); }
+  .chip{
+    border:1px solid color-mix(in oklab, var(--sc-accent) 45%, transparent); border-radius:var(--sc-r-pill);
+    padding:0.5em 1.1em; font-size:var(--sc-t-sm); font-weight:700; letter-spacing:var(--sc-track-normal);
+    color:var(--sc-ink); white-space:nowrap; background:color-mix(in oklab, var(--sc-ink) 8%, transparent);
+    box-shadow:var(--sc-e1), inset 0 1px 0 color-mix(in oklab, var(--sc-ink) 12%, transparent);
+    transition:transform 200ms var(--sc-ease-out), background 200ms var(--sc-ease-out), border-color 200ms var(--sc-ease-out);
+  }
+  .chip:hover{
+    transform:translateY(-2px); border-color:var(--sc-accent);
+    background:color-mix(in oklab, var(--sc-accent) 16%, transparent);
+  }
+
+  /* ---- buttons: hover polish everywhere ---- */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:0.6em;
+    font-family:var(--sc-font-text); font-weight:700; font-size:var(--sc-t-base);
+    letter-spacing:var(--sc-track-normal);
+    padding:1em 1.8em; border-radius:var(--sc-r-sm);
+    background:var(--sc-accent); color:var(--sc-accent-ink);
+    text-decoration:none; border:1px solid transparent; cursor:pointer;
+    box-shadow:var(--sc-e2), var(--sc-edge);
+    position:relative; overflow:hidden; isolation:isolate;
+    transition:transform 220ms var(--sc-ease-out), box-shadow 220ms var(--sc-ease-out);
+  }
+  .btn::after{
+    content:""; position:absolute; inset:0; z-index:-1;
+    background:linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.45) 48%, transparent 62%);
+    translate:-120% 0; transition:translate 520ms var(--sc-ease-out);
+  }
+  .btn:hover{ transform:translateY(-2px); box-shadow:0 10px 26px -6px color-mix(in oklab, var(--sc-accent) 55%, transparent), var(--sc-e3); }
+  .btn:hover::after{ translate:120% 0; }
+  .btn:active{ transform:translateY(0); }
+  .btn--ghost{
+    background:transparent; color:var(--sc-ink); border-color:var(--sc-hairline-strong); box-shadow:none;
+  }
+  .btn--ghost:hover{ border-color:var(--sc-accent); color:var(--sc-accent); box-shadow:none; transform:translateY(-2px); }
+  .btn--sm{ padding:0.7em 1.3em; font-size:var(--sc-t-sm); }
+  .btn--block{ width:100%; }
+  .btn--glow{
+    box-shadow:0 0 0 1px color-mix(in oklab, var(--sc-accent) 60%, transparent),
+               0 8px 20px -4px color-mix(in oklab, var(--sc-accent) 60%, transparent),
+               0 18px 44px -12px color-mix(in oklab, var(--sc-accent) 55%, transparent), var(--sc-edge);
+  }
+  .btn--glow:hover{
+    box-shadow:0 0 0 1px var(--sc-accent),
+               0 10px 26px -4px color-mix(in oklab, var(--sc-accent) 75%, transparent),
+               0 26px 60px -10px color-mix(in oklab, var(--sc-accent) 65%, transparent), var(--sc-edge);
+  }
+  .fine{ font-size:var(--sc-t-xs); color:var(--sc-ink-soft); margin-top:var(--sc-3); }
+  .paper .fine{ color:var(--paper-ink-soft); }
+
+  .rule-gold{ height:2px; width:4rem; background:var(--sc-accent); border:0; margin:var(--sc-5) 0; }
+
+  .kicker{
+    font-family:var(--sc-font-display); font-style:italic; font-size:var(--sc-t-base);
+    color:var(--sc-ink-soft); margin:0 0 var(--sc-2);
+  }
+  .paper .kicker{ color:var(--paper-ink-soft); }
+
+  .paper{ background:var(--paper); color:var(--paper-ink); }
+  .paper .sc-body{ color:var(--paper-ink-soft); }
+  .paper .sc-lede{ color:var(--paper-ink); }
+  .paper :focus-visible{ outline-color:var(--ok); }
+
+  /* ================= PROMO BAR ================= */
+  #promoBar{
+    position:fixed; top:0; left:0; right:0; z-index:90; height:var(--bar-h);
+    background:linear-gradient(180deg, #FDF6E9 0%, #F6E7C7 55%, #EFDBAE 100%);
+    color:var(--paper-ink); border-bottom:1px solid color-mix(in oklab, var(--sc-accent) 55%, transparent);
+    box-shadow:0 2px 0 color-mix(in oklab, #fff 60%, transparent) inset,
+               0 6px 22px -6px color-mix(in oklab, var(--sc-accent) 45%, transparent);
+    display:flex; align-items:center; justify-content:center; overflow:hidden;
+  }
+  #promoBar::after{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background:radial-gradient(60% 140% at 50% -40%, color-mix(in oklab, #fff 55%, transparent), transparent 70%);
+  }
+  #promoBar .wrap{
+    width:100%; max-width:var(--sc-maxw); margin-inline:auto; padding-inline:var(--sc-gutter);
+    display:flex; align-items:center; justify-content:center; gap:var(--sc-5); flex-wrap:wrap;
+    position:relative; z-index:1;
+  }
+  #promoBar .msg{ font-weight:700; font-size:var(--sc-t-sm); white-space:nowrap; display:flex; align-items:center; gap:0.5em; }
+  #promoBar .msg b{ color:var(--no); }
+  .was{ color:currentColor; font-weight:400; opacity:0.55; text-decoration-thickness:1.5px; }
+  #promoBar .msg .dot{
+    width:7px; height:7px; border-radius:50%; background:var(--no); display:inline-block;
+    box-shadow:0 0 0 3px color-mix(in oklab, var(--no) 25%, transparent);
+    animation:promoPulse 1.8s ease-in-out infinite;
+  }
+  @keyframes promoPulse{ 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:0.55; transform:scale(0.8); } }
+  .countdown{ display:flex; gap:6px; }
+  .countdown .cell{
+    display:flex; flex-direction:column; align-items:center; min-width:2.6em;
+    background:linear-gradient(160deg, #2A2013, var(--paper-ink) 60%); color:#FBF3E1; border-radius:8px; padding:6px 8px;
+    font-variant-numeric:tabular-nums; position:relative;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.18), inset 0 -6px 10px rgba(0,0,0,0.25),
+               0 4px 10px -3px rgba(0,0,0,0.35), 0 0 0 1px color-mix(in oklab, var(--sc-accent) 35%, transparent);
+  }
+  .countdown .cell b{ font-size:var(--sc-t-base); line-height:1.1; font-family:var(--sc-font-display); text-shadow:0 1px 0 rgba(0,0,0,0.4); }
+  .countdown .cell span{ font-size:0.58rem; letter-spacing:0.06em; opacity:0.75; text-transform:uppercase; }
+  #promoBar .cta{
+    font-size:var(--sc-t-sm); font-weight:700; padding:0.55em 1.1em;
+  }
+  @media (max-width:600px){
+    #promoBar .wrap{ gap:var(--sc-3); }
+    #promoBar .msg{ font-size:0.72rem; flex:0 0 100%; text-align:center; }
+    #promoBar .cta{ display:none; }
+  }
+
+  /* ================= CART ================= */
+  #cartBtn{
+    position:fixed; top:calc(var(--bar-h) + 16px); right:34px; z-index:70;
+    width:52px; height:52px; border-radius:50%; background:var(--sc-canvas);
+    border:1.5px solid var(--sc-accent); color:var(--sc-ink); cursor:pointer;
+    display:flex; align-items:center; justify-content:center; box-shadow:var(--sc-e2);
+    transition:transform 200ms var(--sc-ease-out), box-shadow 200ms var(--sc-ease-out);
+  }
+  @media (max-width:700px){ #cartBtn{ right:24px; } }
+  #cartBtn:hover{ transform:translateY(-2px) scale(1.04); box-shadow:var(--sc-e3); }
+  #cartBtn svg{ width:22px; height:22px; }
+  #cartCount{
+    position:absolute; top:-4px; right:-4px; background:var(--no); color:#fff;
+    font-size:0.68rem; font-weight:700; width:20px; height:20px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; opacity:0; transform:scale(0.6);
+    transition:all 220ms var(--sc-ease-out);
+  }
+  #cartCount.show{ opacity:1; transform:scale(1); }
+
+  #cartOverlay{
+    position:fixed; inset:0; z-index:95; background:rgba(10,10,6,0.55);
+    opacity:0; pointer-events:none; transition:opacity 260ms var(--sc-ease-out);
+  }
+  #cartOverlay.open{ opacity:1; pointer-events:auto; }
+  #cartDrawer{
+    position:fixed; top:0; right:0; bottom:0; z-index:96; width:min(24rem, 92vw);
+    background:var(--paper); color:var(--paper-ink); box-shadow:-16px 0 48px rgba(0,0,0,0.35);
+    translate:100% 0; transition:translate 320ms var(--sc-ease-drawer);
+    display:flex; flex-direction:column; padding:var(--sc-6);
+  }
+  #cartDrawer.open{ translate:0 0; }
+  #cartDrawer h3{ font-family:var(--sc-font-display); font-size:var(--sc-t-lg); margin:0 0 var(--sc-5); display:flex; justify-content:space-between; align-items:center; }
+  #cartClose{ all:unset; cursor:pointer; font-size:1.4rem; line-height:1; color:var(--paper-ink-soft); }
+  #cartClose:hover{ color:var(--paper-ink); }
+  .cart-item{ display:flex; gap:var(--sc-4); align-items:center; padding:var(--sc-4) 0; border-top:1px solid var(--sc-hairline); border-bottom:1px solid var(--sc-hairline); }
+  .cart-item img{ width:52px; border-radius:6px; box-shadow:var(--sc-e1); }
+  .cart-item .name{ font-weight:600; font-size:var(--sc-t-sm); }
+  .cart-item .fmt{ font-size:var(--sc-t-xs); color:var(--paper-ink-soft); }
+  .cart-empty{ color:var(--paper-ink-soft); font-size:var(--sc-t-sm); padding:var(--sc-6) 0; text-align:center; }
+  .cart-total{ display:flex; justify-content:space-between; align-items:baseline; margin:var(--sc-5) 0; font-family:var(--sc-font-display); font-size:var(--sc-t-lg); }
+  .cart-foot{ margin-top:auto; display:grid; gap:var(--sc-3); }
+  .agree-row{
+    display:flex; gap:0.6em; align-items:flex-start; font-size:0.8rem; color:var(--paper-ink-soft);
+    cursor:pointer; line-height:1.45;
+  }
+  .agree-row input{ margin-top:0.2em; flex:0 0 auto; accent-color:var(--ok); width:16px; height:16px; }
+  .agree-row a{ color:var(--paper-ink); text-decoration:underline; }
+  #checkoutLink[aria-disabled="true"]{ opacity:0.45; pointer-events:none; }
+
+  /* ================= RIBBON ================= */
+  #ribbon{ position:fixed; right:0; top:var(--bar-h); width:12px; height:calc(100vh - var(--bar-h)); z-index:60; pointer-events:none; }
+  #ribbon .track{ position:absolute; inset:0; background:color-mix(in oklab, var(--sc-ink) 10%, transparent); }
+  #ribbon .fill{
+    position:absolute; left:0; top:0; width:100%; height:0%;
+    background:linear-gradient(180deg, color-mix(in oklab, var(--sc-accent) 88%, white), var(--sc-accent));
+    transition:height 60ms linear;
+  }
+  @media (max-width:700px){ #ribbon{ width:7px; } }
+
+  /* ================= HERO ================= */
+  .hero{ position:relative; padding:var(--sc-6) 0 var(--sc-5); overflow:clip; }
+  .hero__wrap{ display:grid; grid-template-columns:1.15fr 1fr; gap:var(--sc-6); align-items:center; }
+  @media (max-width:960px){ .hero__wrap{ grid-template-columns:1fr; gap:var(--sc-5); } }
+  .hero h1{ font-size:var(--sc-t-3xl); line-height:var(--sc-leading-tight); letter-spacing:var(--sc-track-tight); margin:0 0 var(--sc-3); }
+  @media (max-width:700px){ .hero h1{ font-size:var(--sc-t-2xl); } }
+  .hero .lede{ color:var(--sc-ink-soft); max-width:36rem; margin:0 0 var(--sc-3); }
+  .hero .kicker{ font-size:var(--sc-t-base); margin-bottom:0.4em; }
+  .lede-strong{ font-weight:700; color:var(--sc-ink); max-width:34rem; margin:0 0 var(--sc-4); }
+  .hero .cta-row{ display:flex; gap:var(--sc-3); flex-wrap:wrap; margin:var(--sc-4) 0; }
+  .hero .cta-row .btn{ white-space:nowrap; padding-inline:1.4em; }
+  @media (max-width:560px){ .hero .cta-row .btn{ flex:1 1 auto; } }
+  .hero .chip-row{ margin-bottom:0; }
+  .hero .eyebrow{ font-size:var(--sc-t-sm); font-weight:800; letter-spacing:0.1em; margin-bottom:0.3em; }
+
+  .hero__art{ position:relative; display:flex; justify-content:center; }
+  .hero__glow{
+    position:absolute; width:85%; aspect-ratio:1; border-radius:50%;
+    background:radial-gradient(circle, color-mix(in oklab, var(--sc-accent) 42%, transparent) 0%, transparent 70%);
+    filter:blur(36px); z-index:0;
+  }
+  .fan{ position:relative; width:min(94vw, 30rem); aspect-ratio:3/4; z-index:1; }
+  .fan img{
+    position:absolute; width:78%; border-radius:10px; box-shadow:var(--sc-e3); max-width:none;
+    transition:transform 380ms var(--sc-ease-out);
+  }
+  .fan .p1{ left:-4%; top:12%; width:62%; }
+  .fan .p2{ left:13%; top:4%; width:70%; }
+  .fan .p3{ left:16%; top:0; width:82%; }
+  .fan:hover .p1{ transform:translate(-14px,6px) rotate(-5deg); }
+  .fan:hover .p2{ transform:translate(-6px,3px) rotate(-2deg); }
+  .fan:hover .p3{ transform:translateY(-8px); }
+  .hero .fan{ filter:drop-shadow(0 30px 60px rgba(0,0,0,0.45)); }
+
+  /* mini real-pages strip under hero */
+  .peek-row{ display:flex; gap:var(--sc-5); justify-content:center; margin-top:var(--sc-6); flex-wrap:wrap; }
+  .peek{ text-align:center; cursor:pointer; }
+  .peek img{
+    width:6.4rem; border-radius:7px; box-shadow:var(--sc-e1); display:block;
+    transition:transform 240ms var(--sc-ease-out), box-shadow 240ms var(--sc-ease-out);
+  }
+  .peek:hover img{ transform:translateY(-5px) scale(1.03); box-shadow:var(--sc-e3); }
+  .peek span{ display:block; margin-top:var(--sc-2); font-size:var(--sc-t-xs); color:var(--sc-ink-soft); }
+
+  /* lightbox / mini galeria */
+  #lightbox{ position:fixed; inset:0; z-index:98; background:rgba(6,7,4,0.92); display:none; align-items:center; justify-content:center; padding:var(--sc-6); }
+  #lightbox.open{ display:flex; }
+  #lightbox .lb-stage{ position:relative; display:flex; align-items:center; justify-content:center; cursor:default; }
+  #lightbox img{ max-width:min(84vw,30rem); max-height:78vh; border-radius:10px; box-shadow:var(--sc-e3); transition:opacity 160ms var(--sc-ease-out); }
+  .lb-nav{
+    all:unset; position:absolute; top:50%; translate:0 -50%; cursor:pointer;
+    width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    background:color-mix(in oklab, var(--sc-ink) 12%, transparent); color:var(--sc-ink);
+    border:1px solid var(--sc-hairline-strong); transition:all 180ms var(--sc-ease-out);
+  }
+  .lb-nav:hover{ background:var(--sc-accent); color:var(--sc-accent-ink); border-color:var(--sc-accent); }
+  .lb-prev{ left:-64px; } .lb-next{ right:-64px; }
+  @media (max-width:760px){ .lb-prev{ left:8px; } .lb-next{ right:8px; } }
+  .lb-close{
+    all:unset; position:absolute; top:-18px; right:-18px; cursor:pointer;
+    width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    background:var(--sc-ink); color:var(--sc-accent-ink); font-size:1.1rem; box-shadow:var(--sc-e2);
+  }
+  .lb-caption{
+    position:absolute; bottom:-2.6rem; left:0; right:0; text-align:center;
+    font-size:var(--sc-t-sm); color:var(--sc-ink-soft);
+  }
+  .lb-caption b{ color:var(--sc-ink); }
+
+  /* ================= COOKIE BAR ================= */
+  #cookieBar{
+    position:fixed; left:16px; right:16px; bottom:16px; z-index:97;
+    background:var(--paper); color:var(--paper-ink); border-radius:var(--sc-r-lg);
+    box-shadow:0 20px 50px -14px rgba(0,0,0,0.5), 0 0 0 1px color-mix(in oklab, var(--paper-ink) 8%, transparent);
+    padding:var(--sc-5) var(--sc-6); max-width:52rem; margin-inline:auto;
+    translate:0 140%; opacity:0; transition:translate 380ms var(--sc-ease-drawer), opacity 380ms var(--sc-ease-out);
+    pointer-events:none;
+  }
+  #cookieBar.show{ translate:0 0; opacity:1; pointer-events:auto; }
+  .cookie-wrap{ display:flex; align-items:center; gap:var(--sc-5); flex-wrap:wrap; }
+  .cookie-wrap p{ margin:0; font-size:var(--sc-t-sm); color:var(--paper-ink-soft); flex:1 1 20rem; }
+  .cookie-wrap a{ color:var(--paper-ink); text-decoration:underline; }
+  .cookie-actions{ display:flex; gap:var(--sc-3); flex:0 0 auto; }
+  .cookie-actions .btn--ghost{ color:var(--paper-ink); border-color:color-mix(in oklab, var(--paper-ink) 30%, transparent); }
+  .cookie-actions .btn--ghost:hover{ border-color:var(--ok); color:var(--ok); }
+  @media (max-width:600px){ .cookie-actions{ width:100%; } .cookie-actions .btn{ flex:1 1 0; } }
+
+  /* ================= TOC (centered stepper, jak na darmowej stronie) ================= */
+  .toc-app{ margin-top:var(--sc-7); display:flex; flex-direction:column; align-items:center; }
+  .toc-chips{
+    display:flex; gap:0; flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
+    position:relative; padding:8px 4px 14px; max-width:100%;
+  }
+  .toc-chips::before{
+    content:""; position:absolute; left:2.5rem; right:2.5rem; top:calc(8px + 21px);
+    height:2px; background:color-mix(in oklab, var(--paper-ink) 18%, transparent); z-index:0;
+  }
+  .toc-chips button{
+    all:unset; cursor:pointer; flex:0 0 auto; position:relative; z-index:1;
+    width:44px; height:44px; margin:0 6px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--sc-font-display); font-weight:700; font-size:var(--sc-t-sm); color:var(--paper-ink-soft);
+    background:var(--paper); border:2px solid color-mix(in oklab, var(--paper-ink) 18%, transparent);
+    transition:all 180ms var(--sc-ease-out);
+  }
+  .toc-chips button:hover{ border-color:var(--ok); color:var(--paper-ink); transform:translateY(-2px); }
+  .toc-chips button[aria-current="true"]{ background:var(--paper-ink); color:#fff; border-color:var(--paper-ink); }
+  .toc-panel{
+    background:#fff; border:1px solid var(--sc-hairline); border-radius:var(--sc-r-lg);
+    padding:var(--sc-7); margin-top:var(--sc-2); box-shadow:var(--sc-e1);
+    transition:box-shadow 220ms var(--sc-ease-out); text-align:left;
+    max-width:34rem; width:100%; display:flex; gap:var(--sc-5); align-items:flex-start;
+  }
+  .toc-panel:hover{ box-shadow:var(--sc-e2); }
+  .toc-panel .ico{ font-size:1.8rem; line-height:1; flex:0 0 auto; }
+  .toc-panel .pageno{
+    display:inline-block; font-size:var(--sc-t-xs); color:var(--ok); background:var(--ok-bg);
+    padding:0.25em 0.7em; border-radius:var(--sc-r-pill); text-transform:uppercase; letter-spacing:var(--sc-track-wide);
+    margin-bottom:var(--sc-2);
+  }
+  .toc-panel h3{ font-family:var(--sc-font-display); font-size:var(--sc-t-lg); margin:0 0 var(--sc-2); line-height:1.2; }
+  .toc-panel p{ margin:0; color:var(--paper-ink-soft); font-size:var(--sc-t-base); }
+  .toc-tagline{ font-family:var(--sc-font-display); font-style:italic; color:var(--ok); margin:var(--sc-6) 0 0; }
+
+  /* ================= DLA KOGO ================= */
+  .fit-grid{ display:grid; grid-template-columns:1fr 1fr; gap:var(--sc-5); margin-top:var(--sc-6); }
+  @media (max-width:800px){ .fit-grid{ grid-template-columns:1fr; } }
+  .fit-card{ border-radius:var(--sc-r-lg); padding:var(--sc-7); transition:transform 220ms var(--sc-ease-out), box-shadow 220ms var(--sc-ease-out); }
+  .fit-card:hover{ transform:translateY(-3px); box-shadow:var(--sc-e2); }
+  .fit-card.yes{ background:#182015; color:#fff; }
+  .fit-card.no{ background:#fff; color:var(--paper-ink); border:1.5px solid var(--no); }
+  .fit-card h3{ margin:0 0 var(--sc-5); font-family:var(--sc-font-display); font-size:var(--sc-t-lg); }
+  .fit-card.yes h3{ color:#fff; }
+  .fit-card.no h3{ color:var(--no); }
+  .fit-card ul{ list-style:none; margin:0; padding:0; display:grid; gap:var(--sc-4); }
+  .fit-card li{ display:flex; gap:0.8em; align-items:flex-start; font-size:var(--sc-t-sm); padding-top:var(--sc-3); border-top:1px solid color-mix(in oklab, currentColor 14%, transparent); }
+  .fit-card li:first-of-type{ padding-top:0; border-top:0; }
+  .fit-card.yes li{ color:rgba(255,255,255,0.92); }
+  .fit-card.no li{ color:var(--paper-ink); }
+  .fit-card .mark{
+    display:inline-flex; align-items:center; justify-content:center; flex:0 0 auto;
+    width:2em; height:2em; border-radius:50%; font-size:1.05em; font-weight:900; color:#fff; margin-top:0.1em;
+  }
+  .fit-card.yes .mark{ background:var(--ok); box-shadow:0 3px 10px -2px color-mix(in oklab, var(--ok) 70%, transparent); }
+  .fit-card.no .mark{ background:var(--no); box-shadow:0 3px 10px -2px color-mix(in oklab, var(--no) 70%, transparent); }
+
+  /* ================= CREDIBILITY (krótkie, jasne karty z poświatą) ================= */
+  .cred-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:var(--sc-4); margin-top:var(--sc-6); }
+  @media (max-width:860px){ .cred-grid{ grid-template-columns:1fr; } }
+  .cred-card{
+    position:relative; padding:var(--sc-5) var(--sc-5); border-radius:var(--sc-r-md);
+    background:linear-gradient(160deg, #FBF3E1, #F3E4C3);
+    box-shadow:0 4px 14px -4px rgba(0,0,0,0.35), 0 0 0 1px color-mix(in oklab, var(--sc-accent) 30%, transparent);
+    transition:transform 260ms var(--sc-ease-out), box-shadow 260ms var(--sc-ease-out);
+  }
+  .cred-card:hover{
+    transform:translateY(-5px) scale(1.01);
+    box-shadow:0 16px 34px -10px color-mix(in oklab, var(--sc-accent) 45%, transparent), 0 0 0 1px var(--sc-accent);
+  }
+  .cred-card .cred-icon{ font-size:1.5rem; display:block; margin-bottom:var(--sc-3); }
+  .cred-card p.claim{
+    font-family:var(--sc-font-display); font-size:var(--sc-t-base); line-height:1.34; margin:0 0 var(--sc-3); color:var(--paper-ink);
+  }
+  .cred-card p.claim u{ text-decoration-color:var(--no); text-decoration-thickness:2px; text-underline-offset:0.15em; }
+  .cred-card p.detail{ margin:0 0 var(--sc-3); font-size:var(--sc-t-sm); color:var(--paper-ink-soft); line-height:1.5; }
+  .cred-card p.cite{ margin:0; font-size:var(--sc-t-xs); color:var(--paper-ink-soft); }
+
+  /* ================= OFFER ================= */
+  .offer-wrap{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:var(--sc-7); align-items:start; }
+  @media (max-width:900px){ .offer-wrap{ grid-template-columns:1fr; gap:var(--sc-5); } }
+  .offer-wrap .fan{ width:min(96vw, 31rem); margin-top:-1.5rem; }
+  @media (max-width:900px){ .offer-wrap .fan{ margin-top:0; } }
+  .offer-card{
+    text-align:left; background:color-mix(in oklab, var(--sc-ink) 6%, transparent);
+    border:1px solid var(--sc-hairline); border-radius:var(--sc-r-lg);
+    padding:var(--sc-6) var(--sc-7); box-shadow:var(--sc-e2);
+  }
+  .offer-card h2{ max-width:none; }
+  .price{ font-family:var(--sc-font-display); font-size:var(--sc-t-xl); line-height:1; margin:var(--sc-3) 0 var(--sc-4); text-align:left; }
+  .price .was{ font-size:0.5em; margin-right:0.3em; }
+  .price span{ font-size:0.42em; color:var(--sc-ink-soft); font-family:var(--sc-font-text); }
+  .offer-label{ font-size:var(--sc-t-xs); font-weight:700; letter-spacing:var(--sc-track-wide); text-transform:uppercase; color:var(--sc-accent); margin:0 0 var(--sc-3); }
+  .offer-list{ list-style:none; margin:0 0 var(--sc-5); padding:0; display:grid; gap:var(--sc-2); text-align:left; }
+  .offer-list li{ display:flex; gap:0.6em; font-size:var(--sc-t-sm); }
+  .offer-list li::before{ content:"✓"; color:var(--sc-accent); font-weight:700; flex:0 0 auto; }
+  .offer-punch{ font-family:var(--sc-font-display); font-size:var(--sc-t-base); margin:0 0 var(--sc-5); }
+
+  /* ================= FAQ ================= */
+  details{ border-top:1px solid var(--sc-hairline); padding:var(--sc-4) 0; }
+  details:last-of-type{ border-bottom:1px solid var(--sc-hairline); }
+  summary{ cursor:pointer; font-family:var(--sc-font-display); font-size:var(--sc-t-base); font-weight:600; list-style:none; display:flex; justify-content:space-between; gap:var(--sc-4); color:var(--sc-ink); }
+  summary::-webkit-details-marker{ display:none; }
+  summary::after{ content:"+"; font-family:var(--sc-font-text); color:var(--sc-accent); font-size:1.3em; flex:0 0 auto; transition:transform 200ms var(--sc-ease-out); }
+  details[open] summary::after{ content:"–"; }
+  details p{ margin:var(--sc-3) 0 0; max-width:60ch; color:var(--sc-ink-soft); font-size:var(--sc-t-sm); }
+  .paper summary{ color:var(--paper-ink); }
+  .paper summary::after{ color:var(--ok); }
+  .paper details p{ color:var(--paper-ink-soft); }
+  .paper details{ border-color:color-mix(in oklab, var(--paper-ink) 14%, transparent); }
+
+  /* ================= FINAL CTA (pełnoekranowe zdjęcie) ================= */
+  .final-cta{ position:relative; min-height:70svh; display:flex; align-items:center; justify-content:center; overflow:clip; }
+  .final-cta__bg{ position:absolute; inset:0; z-index:0; }
+  .final-cta__bg img{ width:100%; height:100%; object-fit:cover; }
+  .final-cta__bg::after{
+    content:""; position:absolute; inset:0;
+    background:color-mix(in oklab, var(--sc-canvas) 72%, transparent);
+  }
+  .final-cta__body{
+    position:relative; z-index:1; text-align:center; max-width:44rem; padding:var(--sc-9) var(--sc-gutter);
+    text-shadow:0 2px 20px rgba(4,5,3,0.6);
+  }
+  .final-cta__body .eyebrow{ justify-content:center; display:block; }
+  .final-cta__body h2{ font-size:var(--sc-t-2xl); line-height:1.14; margin:0 0 var(--sc-5); }
+  .final-cta__body p{ color:var(--sc-ink-soft); margin:0 auto var(--sc-3); max-width:36rem; }
+  .final-cta__body .btn{ margin-top:var(--sc-6); }
+
+  /* ================= CLOSER (manifest przed stopką) ================= */
+  .closer{ text-align:center; padding-block:var(--sc-8); }
+  .closer .sc-wrap{ max-width:38rem; }
+  .closer p{ color:var(--sc-ink-soft); margin:0 0 var(--sc-4); }
+  .closer .stat-line{ font-weight:700; color:var(--sc-ink); letter-spacing:var(--sc-track-normal); }
+  .closer h3{ font-family:var(--sc-font-display); font-size:var(--sc-t-xl); margin:var(--sc-5) 0 var(--sc-6); color:var(--sc-ink); }
+  .closer .fine{ margin-top:var(--sc-5); text-align:center; }
+
+  /* ================= FOOTER ================= */
+  .site-footer{ padding:var(--sc-6) 0; border-top:1px solid var(--sc-hairline); }
+  .site-footer .sc-wrap{ text-align:left; }
+  .site-footer p{ margin:0 0 var(--sc-2); font-size:var(--sc-t-sm); color:var(--sc-ink-soft); }
+  .site-footer p b{ color:var(--sc-ink); font-family:var(--sc-font-display); font-weight:600; }
+  .footer-links{ margin-top:var(--sc-4); font-size:var(--sc-t-sm); color:var(--sc-ink-soft); }
+  .footer-links a{ color:var(--sc-ink-soft); text-decoration:underline; text-underline-offset:0.2em; transition:color 160ms var(--sc-ease-out); }
+  .footer-links a:hover{ color:var(--sc-accent); }
+  .footer-links .sep{ margin:0 0.6em; opacity:0.5; }
+</style>
+</head>
+<body>
+
+<span data-sc-progress></span>
+<div class="sc-grain" aria-hidden="true"></div>
+
+<div id="promoBar">
+  <div class="wrap">
+    <p class="msg"><span class="dot" aria-hidden="true"></span>Cena premierowa <s class="was">59 zł</s> <b>49 zł</b> tylko przez:</p>
+    <div class="countdown" id="countdown" aria-label="Pozostały czas promocji">
+      <div class="cell"><b id="cdD">00</b><span>dni</span></div>
+      <div class="cell"><b id="cdH">00</b><span>godz</span></div>
+      <div class="cell"><b id="cdM">00</b><span>min</span></div>
+      <div class="cell"><b id="cdS">00</b><span>sek</span></div>
+    </div>
+    <a class="btn cta" href="#oferta">Kup ebook za 49 zł</a>
+  </div>
+</div>
+
+<div id="ribbon" aria-hidden="true">
+  <div class="track"></div>
+  <div class="fill" id="ribbonFill"></div>
+</div>
+
+<button id="cartBtn" aria-label="Koszyk">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+  <span id="cartCount">0</span>
+</button>
+
+<div id="cartOverlay"></div>
+<aside id="cartDrawer" aria-label="Koszyk">
+  <h3>Twój koszyk <button id="cartClose" aria-label="Zamknij">&times;</button></h3>
+  <div id="cartBody">
+    <p class="cart-empty">Koszyk jest pusty — dodaj ebook, żeby przejść do płatności.</p>
+  </div>
+  <div class="cart-foot" id="cartFoot" style="display:none;">
+    <div class="cart-total"><span>Razem</span><span>49 zł</span></div>
+    <label class="agree-row">
+      <input type="checkbox" id="agreeTerms">
+      <span>Akceptuję <a href="ebook/regulamin.html" target="_blank" rel="noopener">regulamin</a> i <a href="ebook/polityka-prywatnosci.html" target="_blank" rel="noopener">politykę prywatności</a>, w tym informację o utracie prawa odstąpienia od umowy po natychmiastowym udostępnieniu treści cyfrowej.</span>
+    </label>
+    <a class="btn btn--block" href="https://buy.stripe.com/7sYdR2glJ7jB8IJ6qx4ow00" id="checkoutLink" aria-disabled="true">Przejdź do płatności</a>
+    <p class="fine" style="text-align:center;">PDF · dostęp po zakupie · link na e-mail</p>
+  </div>
+</aside>
+
+<div id="lightbox">
+  <div class="lb-stage">
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Poprzednia strona">‹</button>
+    <img id="lightboxImg" src="" alt="">
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Następna strona">›</button>
+    <button class="lb-close" id="lbClose" aria-label="Zamknij">&times;</button>
+    <p class="lb-caption" id="lbCaption"></p>
+  </div>
+</div>
+
+<div id="cookieBar" role="dialog" aria-label="Zgoda na cookies">
+  <div class="cookie-wrap">
+    <p>🍪 Używamy plików cookies niezbędnych do działania strony. Za Twoją zgodą chcielibyśmy też używać cookies analitycznych/marketingowych, żeby wiedzieć, co działa. Strona działa tak samo bez tego. <a href="ebook/polityka-prywatnosci.html" target="_blank" rel="noopener">Więcej</a></p>
+    <div class="cookie-actions">
+      <button class="btn btn--ghost btn--sm" id="cookieNecessary">Tylko niezbędne</button>
+      <button class="btn btn--sm" id="cookieAccept">Akceptuję</button>
+    </div>
+  </div>
+</div>
+
+<main id="top">
+
+  <!-- 0 · HERO: produkt od razu na pierwszym ekranie -->
+  <section class="hero" data-chapter="0" data-sc-drift="#172619">
+    <div class="sc-wrap hero__wrap">
+      <div data-sc-in>
+        <p class="eyebrow">Przewodnik dla początkujących biegaczek</p>
+        <p class="kicker">Chcesz zacząć biegać, ale nie wiesz jak?</p>
+        <h1 class="sc-display">Załóż buty. Wyjdź.<br>Resztę masz rozpisaną.</h1>
+        <p class="lede"><em class="voice">„Biegaj wolno, dojdź daleko"</em> prowadzi Cię krok po kroku od pierwszego truchtu aż do 5, 10 i 21,1 km — bez zgadywania, czy biegniesz dobrze, bez wstydu, że jesteś „za wolna", i bez planu, który zakłada, że już masz kondycję.</p>
+        <p class="lede-strong">Po prostu otwierasz ebook i wiesz, co robić dalej.</p>
+        <div class="chip-row">
+          <span class="chip">9 rozdziałów</span>
+          <span class="chip">Plany 5 · 10 · 21,1 km</span>
+          <span class="chip">60 źródeł naukowych</span>
+        </div>
+        <div class="cta-row">
+          <button class="btn btn--glow" id="addToCartHero">Chcę zacząć biegać — kupuję za 49 zł</button>
+          <a class="btn btn--ghost" href="#spis">Zobacz, co znajdziesz w środku</a>
+        </div>
+      </div>
+      <div class="hero__art">
+        <div class="hero__glow" aria-hidden="true"></div>
+        <div class="fan">
+          <img class="p1" src="ebook/assets/toc.jpg" alt="">
+          <img class="p2" src="ebook/assets/chapter-opener.jpg" alt="">
+          <img class="p3" src="ebook/assets/cover.jpg" alt="Okładka ebooka Biegaj wolno, dojdź daleko">
+        </div>
+      </div>
+    </div>
+    <div class="sc-wrap">
+      <div class="peek-row">
+        <div class="peek" data-full="ebook/assets/cover.jpg"><img src="ebook/assets/cover.jpg" alt="Okładka"><span>Okładka</span></div>
+        <div class="peek" data-full="ebook/assets/toc.jpg"><img src="ebook/assets/toc.jpg" alt="Spis treści"><span>Spis treści</span></div>
+        <div class="peek" data-full="ebook/assets/chapter-opener.jpg"><img src="ebook/assets/chapter-opener.jpg" alt="Rozdział 1"><span>Rozdział 1</span></div>
+        <div class="peek" data-full="ebook/assets/intro.jpg"><img src="ebook/assets/intro.jpg" alt="Wstęp"><span>Wstęp</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1 · CO ZNAJDZIESZ W ŚRODKU (od razu po hero, wyśrodkowany stepper) -->
+  <section class="sc-section paper" id="spis" data-chapter="1" data-sc-drift="#F6F0E2">
+    <div class="sc-wrap" style="text-align:center;">
+      <p class="eyebrow" data-sc-in>Co jest w środku</p>
+      <h2 class="sc-display sc-display--md" data-sc-in style="max-width:30rem; margin-inline:auto;">109 stron, dziewięć rozdziałów.</h2>
+      <p class="sc-body" data-sc-in style="max-width:30rem; margin:var(--sc-2) auto 0;">Kliknij numer, żeby zobaczyć, co jest w środku.</p>
+      <div class="toc-app" data-sc-in>
+        <nav class="toc-chips" id="tocRail" aria-label="Spis treści"></nav>
+        <div class="toc-panel" id="tocPanel"></div>
+        <p class="toc-tagline">109 stron. Zero nadęcia. Same rzeczy, które pomagają zacząć i nie odpuścić po tygodniu.</p>
+        <div style="margin-top:var(--sc-7);">
+          <a class="btn" href="#oferta">Chcę mieć plan i zacząć — 49 zł</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 · DLA KOGO — od razu pod spisem -->
+  <section class="sc-section paper" data-chapter="2" data-sc-drift="#F6F0E2" style="padding-top:0;">
+    <div class="sc-wrap">
+      <p class="eyebrow" data-sc-in>Zanim kupisz</p>
+      <h2 class="sc-display sc-display--lg" data-sc-in style="max-width:34rem;">Ten ebook jest dla Ciebie, jeśli…</h2>
+      <div class="fit-grid" data-sc-in>
+        <div class="fit-card yes">
+          <h3>Tak — prawdopodobnie właśnie tego szukasz</h3>
+          <ul>
+            <li><span class="mark">✓</span>Zaczynasz od zera albo wracasz do biegania po długiej przerwie.</li>
+            <li><span class="mark">✓</span>Po chwili biegu łapiesz zadyszkę i zastanawiasz się, czy w ogóle „nadajesz się" do biegania.</li>
+            <li><span class="mark">✓</span>Próbowałaś już wcześniej, ale zaczynałaś za szybko, za mocno albo bez planu — i kończyło się odpuszczeniem.</li>
+            <li><span class="mark">✓</span>Chcesz wiedzieć dokładnie, co robić krok po kroku, zamiast po raz kolejny usłyszeć „po prostu zacznij biegać".</li>
+            <li><span class="mark">✓</span>Chcesz biegać dla siebie — bez presji na tempo, wynik i udowadnianie czegokolwiek komukolwiek.</li>
+          </ul>
+        </div>
+        <div class="fit-card no">
+          <h3>Ten ebook nie będzie dla Ciebie, jeśli…</h3>
+          <ul>
+            <li><span class="mark">✕</span>Biegasz już regularnie i szukasz sposobu na poprawienie konkretnego wyniku.</li>
+            <li><span class="mark">✕</span>Trenujesz pod szybkie zawody i zależy Ci przede wszystkim na tempie.</li>
+            <li><span class="mark">✕</span>Szukasz zaawansowanych jednostek treningowych opartych na strefach tętna, tempach i analizie wyników.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="sc-lede" data-sc-in style="max-width:34rem; margin:var(--sc-6) auto 0; text-align:center; font-family:var(--sc-font-display); font-size:var(--sc-t-lg);">To nie jest ebook o tym, jak biegać szybciej.<br>To ebook o tym, jak w końcu zacząć biegać i zostać przy tym na dłużej.</p>
+    </div>
+  </section>
+
+  <!-- 3 · DLACZEGO WOLNO DZIAŁA — krótko, trzy jasne karty -->
+  <section class="sc-section" data-chapter="3" data-sc-drift="#12200F" style="padding-block:var(--sc-8);">
+    <div class="sc-wrap">
+      <p class="kicker" data-sc-in>Nie potrzebujesz więcej motywacji. Potrzebujesz dobrego początku.</p>
+      <h2 class="sc-display sc-display--lg" data-sc-in style="max-width:34rem;">Dlaczego „wolno" naprawdę ma sens?</h2>
+      <div class="cred-grid" data-sc-in data-sc-stagger="90">
+        <div class="cred-card">
+          <span class="cred-icon" aria-hidden="true">🔦</span>
+          <p class="claim">Prawdopodobnie inni zwracają na Ciebie znacznie mniej uwagi, niż podpowiada Ci głowa.</p>
+          <p class="detail">To zjawisko psychologia opisuje jako efekt reflektora — mamy tendencję do przeceniania tego, jak bardzo inni zauważają nasze zachowanie i wygląd.</p>
+          <p class="cite">Gilovich, Medvec &amp; Savitsky, Cornell, 2000</p>
+        </div>
+        <div class="cred-card">
+          <span class="cred-icon" aria-hidden="true">💛</span>
+          <p class="claim">Łagodniejsze podejście do siebie może pomóc Ci wrócić po słabszym dniu.</p>
+          <p class="detail">Bo jeden opuszczony trening nie oznacza porażki. Problem zaczyna się dopiero wtedy, kiedy po jednym gorszym dniu uznajesz, że „znowu Ci nie wyszło".</p>
+          <p class="cite">Neff &amp; Germer, Journal of Clinical Psychology, 2013</p>
+        </div>
+        <div class="cred-card">
+          <span class="cred-icon" aria-hidden="true">📚</span>
+          <p class="claim">To nie jest 109 stron motywacyjnych haseł.</p>
+          <p class="detail">Ebook powstał w oparciu o 60 źródeł naukowych, które możesz samodzielnie sprawdzić.</p>
+          <p class="cite">Pełną bibliografię znajdziesz w rozdziale 9 od strony 100.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · OFERTA -->
+  <section class="sc-section" id="oferta" data-chapter="4" data-sc-drift="#12200F">
+    <div class="sc-wrap offer-wrap">
+      <div class="hero__art" data-sc-in style="min-height:0;">
+        <div class="hero__glow" aria-hidden="true"></div>
+        <div class="fan">
+          <img class="p1" src="ebook/assets/toc.jpg" alt="">
+          <img class="p2" src="ebook/assets/chapter-opener.jpg" alt="">
+          <img class="p3" src="ebook/assets/cover.jpg" alt="Okładka ebooka Biegaj wolno, dojdź daleko">
+        </div>
+      </div>
+      <div class="offer-card" data-sc-in>
+        <p class="eyebrow">Dostajesz dziś</p>
+        <h2 class="sc-display sc-display--md">Twój kompletny start w bieganie</h2>
+        <p class="price"><s class="was">59 zł</s> 49 <span>zł · jednorazowo</span></p>
+        <ul class="offer-list">
+          <li>109 stron — 9 rozdziałów + bonus</li>
+          <li>Plany na 5, 10 i 21,1 km</li>
+          <li>Drukowalny tracker i karta startowa</li>
+          <li>Pełna bibliografia — 60 źródeł</li>
+        </ul>
+        <div class="cta-row">
+          <button class="btn btn--glow" id="addToCartOffer">Dodaj ebook do koszyka — 49 zł</button>
+        </div>
+        <p class="fine">PDF · dostęp po zakupie · link otrzymasz na e-mail</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · FAQ -->
+  <section class="sc-section paper" data-chapter="5" data-sc-drift="#F6F0E2">
+    <div class="sc-wrap" style="max-width:44rem;">
+      <p class="eyebrow" data-sc-in>Pytania</p>
+      <h2 class="sc-display sc-display--lg" data-sc-in style="margin-bottom:var(--sc-6);">Masz jeszcze pytania?</h2>
+      <div data-sc-in data-sc-stagger="50">
+        <details open>
+          <summary>Czy ten ebook jest dla kogoś, kto nigdy wcześniej nie biegał?</summary>
+          <p>Tak. Właśnie dla takiej osoby został napisany. Nie zakładamy, że masz kondycję, znasz biegowe pojęcia albo potrafisz przebiec kilka kilometrów. Zaczynamy od początku — spokojnie, krok po kroku.</p>
+        </details>
+        <details>
+          <summary>Czym różni się od darmowego planu na 7 dni?</summary>
+          <p>Darmowy plan może powiedzieć Ci, co zrobić przez kilka najbliższych dni. Ten ebook pokazuje Ci również dlaczego to robisz, jak dostosować start do siebie i co zrobić, kiedy pojawi się zadyszka, wstyd, brak motywacji albo pierwszy gorszy trening. Do tego dostajesz gotową drogę nie na tydzień, ale aż do 5, 10 i 21,1&nbsp;km.</p>
+        </details>
+        <details>
+          <summary>W jakim formacie dostanę ebook?</summary>
+          <p>Otrzymasz ebook w formacie PDF. Po zakupie link do pliku trafi na Twój adres e-mail, więc możesz czytać go na telefonie, komputerze lub tablecie.</p>
+        </details>
+        <details>
+          <summary>Czy dostanę plan dopasowany indywidualnie?</summary>
+          <p>Nie. Ebook nie jest indywidualną usługą trenerską. Znajdziesz w nim gotowe plany stworzone z myślą o początkujących biegaczkach oraz wskazówki, które pomogą Ci podejść do nich rozsądnie i bez niepotrzebnej presji.</p>
+        </details>
+        <details>
+          <summary>Ile czasu zajmuje przeczytanie?</summary>
+          <p>Nie musisz czytać wszystkich 109 stron naraz. Możesz potraktować ebook jak przewodnik: przeczytać część potrzebną Ci na danym etapie, zacząć działać i wracać do kolejnych rozdziałów razem ze swoim postępem.</p>
+        </details>
+        <details>
+          <summary>Czy to bezpieczne, jeśli mam problem zdrowotny?</summary>
+          <p>Ebook ma charakter edukacyjny i nie zastępuje konsultacji medycznej. Jeśli masz chorobę przewlekłą, dolegliwości, kontuzję albo wątpliwości dotyczące rozpoczęcia aktywności fizycznej, skonsultuj się wcześniej z lekarzem lub odpowiednim specjalistą.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · ZAMKNIĘCIE: pełnoekranowe zdjęcie -->
+  <section class="final-cta" data-chapter="6" data-sc-drift="#172619">
+    <div class="final-cta__bg" aria-hidden="true"><img src="ebook/assets/landscape.jpg" alt=""></div>
+    <div class="final-cta__body" data-sc-in>
+      <h2 class="sc-display">Nie musisz najpierw zostać „biegaczką", żeby zacząć biegać.</h2>
+      <p>Nie potrzebujesz lepszej kondycji, idealnego poniedziałku ani „większej motywacji". Potrzebujesz wiedzieć, jaki zrobić pierwszy krok — a potem następny.</p>
+      <button class="btn btn--glow" id="addToCartFinal">Chcę zacząć biegać — kupuję za 49 zł</button>
+    </div>
+  </section>
+
+  <!-- 7 · MANIFEST / REKAPITULACJA -->
+  <section class="closer" data-chapter="7" data-sc-drift="#172619">
+    <div class="sc-wrap" data-sc-in>
+      <p>„Biegaj wolno, dojdź daleko" daje Ci całą drogę rozpisaną przed Tobą — od pierwszego truchtu aż do 5, 10 i 21,1 km.</p>
+      <p class="stat-line">109 stron. 9 rozdziałów. Gotowe plany. 60 źródeł naukowych.</p>
+      <h3>Ty zakładasz buty. My pokazujemy Ci, co dalej.</h3>
+      <button class="btn btn--glow" id="addToCartManifesto">Tak, chcę zacząć biegać — kupuję za 49 zł</button>
+      <p class="fine">Cena premierowa: <s class="was">59 zł</s> 49 zł</p>
+    </div>
+  </section>
+
+  <!-- 8 · FOOTER -->
+  <footer class="site-footer" data-chapter="8" data-sc-drift="#172619">
+    <div class="sc-wrap">
+      <p><b>Biegaj Wolno</b> — uczymy kobiety biegać wolno, żeby mogły biegać długo.</p>
+      <p>Materiał ma charakter edukacyjny i nie zastępuje konsultacji z lekarzem.</p>
+      <nav class="footer-links">
+        <a href="ebook/regulamin.html">Regulamin</a><span class="sep">·</span><a href="ebook/polityka-prywatnosci.html">Polityka prywatności</a><span class="sep">·</span><a href="#" id="cookieSettingsLink">Ustawienia cookies</a><span class="sep">·</span><a href="mailto:biegajwolno@gmail.com">Kontakt</a><span class="sep">·</span><a href="https://instagram.com/biegajwolno">Instagram @biegajwolno</a>
+      </nav>
+    </div>
+  </footer>
+
+</main>
+
+<script src="ebook/scrollcraft.js"></script>
+<script>ScrollCraft.mount(document.body);</script>
+<script>
+(function(){
+  "use strict";
+
+  /* ---- spis treści: realne rozdziały, wersja skondensowana ---- */
+  var toc = [
+    {n:"—", ico:"👟", t:"Wstęp: Zanim zawiążesz buty", s:"Jak korzystać z tej książki", p:4},
+    {n:"1", ico:"🧠", t:"Psychologia startu i przełamywanie wstydu", s:"Dowiesz się, dlaczego wydaje Ci się, że wszyscy patrzą, jak przestać porównywać się z innymi i jak zbudować nawyk biegania bez ciągłego zmuszania się do treningu.", p:7},
+    {n:"2", ico:"🔬", t:"Nauka wolnego biegania — Strefa 2 i Strefa 3", s:"Mitochondria, progi mleczanowe, metoda 80/20 i test konwersacyjny", p:15},
+    {n:"3", ico:"🌙", t:"Cykl menstruacyjny a bieganie", s:"Estrogen, progesteron, gospodarka wodna i regeneracja", p:30},
+    {n:"4", ico:"🎒", t:"Sprzętowy niezbędnik kobiecy", s:"Stanik, buty, pasy — i wszystko, co naprawdę ma znaczenie", p:40},
+    {n:"★", ico:"⭐", t:"Moje TOP gadżety", s:"Kamizelka, zegarek, okulary i dwie pary butów — z linkami", p:54},
+    {n:"5", ico:"🍎", t:"Dieta, lekkie przekąski i nawodnienie", s:"Co jeść przed, co po i jak nie dać się skurczom", p:57},
+    {n:"6", ico:"🏃‍♀️", t:"Plan treningowy na pierwsze 3 tygodnie", s:"Dziewięć wyjść, które zmienią Twoje ciało", p:70},
+    {n:"7", ico:"🏁", t:"Od pierwszej piątki do półmaratonu", s:"Od piątki, przez dziesiątkę, aż do 21,1 kilometra", p:83},
+    {n:"8", ico:"✅", t:"Habit tracker w Notion i drukowalna checklista", s:"System, który poniesie Cię, gdy zniknie entuzjazm", p:93},
+    {n:"9", ico:"📚", t:"Pełna bibliografia naukowa", s:"Wszystkie źródła, żebyś mogła sprawdzić każde zdanie", p:100}
+  ];
+  var rail = document.getElementById("tocRail");
+  var panel = document.getElementById("tocPanel");
+  function renderPanel(i){
+    var c = toc[i];
+    panel.innerHTML =
+      '<span class="ico">'+c.ico+'</span>' +
+      '<div><span class="pageno">Strona '+c.p+'</span><h3>'+c.t+'</h3><p>'+c.s+'</p></div>';
+  }
+  toc.forEach(function(c, i){
+    var b = document.createElement("button");
+    b.innerHTML = '<span class="n">'+c.n+'</span>';
+    b.title = c.t;
+    b.setAttribute("aria-current", i === 1 ? "true" : "false");
+    b.addEventListener("click", function(){
+      rail.querySelectorAll("button").forEach(function(x){ x.setAttribute("aria-current","false"); });
+      b.setAttribute("aria-current","true");
+      renderPanel(i);
+    });
+    rail.appendChild(b);
+  });
+  renderPanel(1);
+
+/* ---- mini galeria pod hero: lightbox z przewijaniem między stronami ---- */
+  var lb = document.getElementById("lightbox");
+  var lbImg = document.getElementById("lightboxImg");
+  var lbCaption = document.getElementById("lbCaption");
+  var lbPrev = document.getElementById("lbPrev");
+  var lbNext = document.getElementById("lbNext");
+  var lbClose = document.getElementById("lbClose");
+  var peeks = Array.prototype.slice.call(document.querySelectorAll(".peek"));
+  var gallery = peeks.map(function(p){
+    return { full: p.getAttribute("data-full"), caption: p.querySelector("span").textContent };
+  });
+  var lbIndex = 0;
+
+  function showSlide(i){
+    lbIndex = (i + gallery.length) % gallery.length;
+    var item = gallery[lbIndex];
+    lbImg.src = item.full;
+    lbImg.alt = item.caption;
+    lbCaption.innerHTML = "<b>" + item.caption + "</b> — " + (lbIndex + 1) + " / " + gallery.length;
+  }
+  function openLightbox(i){ showSlide(i); lb.classList.add("open"); }
+  function closeLightbox(){ lb.classList.remove("open"); }
+
+  peeks.forEach(function(p, i){
+    p.addEventListener("click", function(){ openLightbox(i); });
+  });
+  lbPrev.addEventListener("click", function(e){ e.stopPropagation(); showSlide(lbIndex - 1); });
+  lbNext.addEventListener("click", function(e){ e.stopPropagation(); showSlide(lbIndex + 1); });
+  lbClose.addEventListener("click", closeLightbox);
+  lb.addEventListener("click", function(e){ if (e.target === lb) closeLightbox(); });
+  document.addEventListener("keydown", function(e){
+    if (!lb.classList.contains("open")) return;
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowLeft") showSlide(lbIndex - 1);
+    if (e.key === "ArrowRight") showSlide(lbIndex + 1);
+  });
+
+  /* ---- koszyk ---- */
+  var cartBtn = document.getElementById("cartBtn");
+  var cartCount = document.getElementById("cartCount");
+  var cartOverlay = document.getElementById("cartOverlay");
+  var cartDrawer = document.getElementById("cartDrawer");
+  var cartClose = document.getElementById("cartClose");
+  var cartBody = document.getElementById("cartBody");
+  var cartFoot = document.getElementById("cartFoot");
+  var inCart = false;
+
+  function openCart(){ cartOverlay.classList.add("open"); cartDrawer.classList.add("open"); }
+  function closeCart(){ cartOverlay.classList.remove("open"); cartDrawer.classList.remove("open"); }
+
+  function addToCart(){
+    if (!inCart){
+      inCart = true;
+      cartCount.textContent = "1";
+      cartCount.classList.add("show");
+      cartBody.innerHTML =
+        '<div class="cart-item">' +
+          '<img src="ebook/assets/cover.jpg" alt="">' +
+          '<div><div class="name">Biegaj wolno, dojdź daleko</div><div class="fmt">PDF · 109 stron</div></div>' +
+        '</div>';
+      cartFoot.style.display = "grid";
+    }
+    openCart();
+  }
+
+  document.getElementById("addToCartHero").addEventListener("click", addToCart);
+  document.getElementById("addToCartOffer").addEventListener("click", addToCart);
+  document.getElementById("addToCartFinal").addEventListener("click", addToCart);
+  document.getElementById("addToCartManifesto").addEventListener("click", addToCart);
+  cartBtn.addEventListener("click", function(){ inCart ? openCart() : openCart(); });
+  cartClose.addEventListener("click", closeCart);
+  cartOverlay.addEventListener("click", closeCart);
+
+  /* ---- checkout odblokowany dopiero po akceptacji regulaminu ---- */
+  var agree = document.getElementById("agreeTerms");
+  var checkoutLink = document.getElementById("checkoutLink");
+  agree.addEventListener("change", function(){
+    checkoutLink.setAttribute("aria-disabled", agree.checked ? "false" : "true");
+  });
+  checkoutLink.addEventListener("click", function(e){
+    if (!agree.checked) e.preventDefault();
+  });
+
+  /* ---- baner cookies ---- */
+  var COOKIE_KEY = "bw_cookie_consent";
+  var cookieBar = document.getElementById("cookieBar");
+  function cookieChoice(){ try{ return localStorage.getItem(COOKIE_KEY); }catch(e){ return null; } }
+  function setCookieChoice(v){ try{ localStorage.setItem(COOKIE_KEY, v); }catch(e){} cookieBar.classList.remove("show"); }
+  if (!cookieChoice()){ setTimeout(function(){ cookieBar.classList.add("show"); }, 400); }
+  document.getElementById("cookieAccept").addEventListener("click", function(){ setCookieChoice("all"); });
+  document.getElementById("cookieNecessary").addEventListener("click", function(){ setCookieChoice("necessary"); });
+  var cookieSettingsLink = document.getElementById("cookieSettingsLink");
+  if (cookieSettingsLink){
+    cookieSettingsLink.addEventListener("click", function(e){
+      e.preventDefault();
+      cookieBar.classList.add("show");
+    });
+  }
+
+  /* ---- pasek promocyjny: odliczanie (okno 48h na przeglądarkę) ---- */
+  var KEY = "bw_promo_deadline";
+  var deadline = parseInt(localStorage.getItem(KEY) || "0", 10);
+  if (!deadline || deadline < Date.now()){
+    deadline = Date.now() + 48 * 3600 * 1000;
+    try{ localStorage.setItem(KEY, String(deadline)); }catch(e){}
+  }
+  function pad(n){ return String(n).padStart(2,"0"); }
+  function tickCountdown(){
+    var diff = Math.max(0, deadline - Date.now());
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor((diff % 86400000) / 3600000);
+    var m = Math.floor((diff % 3600000) / 60000);
+    var s = Math.floor((diff % 60000) / 1000);
+    document.getElementById("cdD").textContent = pad(d);
+    document.getElementById("cdH").textContent = pad(h);
+    document.getElementById("cdM").textContent = pad(m);
+    document.getElementById("cdS").textContent = pad(s);
+  }
+  tickCountdown();
+  setInterval(tickCountdown, 1000);
+
+  /* ---- wstążka postępu (czysty pasek, bez numeru — kolidował z koszykiem) ---- */
+  var fill = document.getElementById("ribbonFill");
+
+  function tick(){
+    var doc = document.documentElement;
+    var max = doc.scrollHeight - window.innerHeight;
+    var pct = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+    fill.style.height = (pct * 100) + "%";
+    window.requestAnimationFrame(tick);
+  }
+  window.requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>

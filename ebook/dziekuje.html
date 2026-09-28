@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dziękujemy za zakup — Biegaj Wolno</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23172619'/%3E%3Cpath d='M5,22.5 C5,19.5 7.5,17.3 10.5,16.5 L18,14.3 C20,13.7 22,14 23.5,15.3 L26.5,17.8 C27.6,18.7 27.4,20.4 26.1,21 L24.5,21.7 L24.5,23 C24.5,24 23.7,24.8 22.7,24.8 L7,24.8 C5.9,24.8 5,23.9 5,22.8 Z' fill='%23D2A24C'/%3E%3Cpath d='M18.5,15.5 L19.5,17.5' stroke='%23172619' stroke-width='0.9' stroke-linecap='round'/%3E%3Cpath d='M20.5,15.9 L21.4,17.7' stroke='%23172619' stroke-width='0.9' stroke-linecap='round'/%3E%3Cpath d='M22.4,16.6 L23.1,18.1' stroke='%23172619' stroke-width='0.9' stroke-linecap='round'/%3E%3C/svg%3E">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --canvas:#172619; --ink:#F4EEDF; --ink-soft:#B9AF98; --accent:#D2A24C; --accent-ink:#17130A;
+    --font-display:"Fraunces",serif; --font-text:"Work Sans",system-ui,sans-serif;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; min-height:100svh; background:
+      radial-gradient(120% 90% at 50% -10%, color-mix(in oklab, var(--accent) 18%, transparent), transparent 60%),
+      var(--canvas);
+    color:var(--ink); font-family:var(--font-text); line-height:1.65;
+    display:flex; align-items:center; justify-content:center; padding:2rem 1.25rem;
+  }
+  .card{ max-width:34rem; text-align:center; }
+  .stamp{
+    width:64px; height:64px; margin:0 auto 1.5rem; border-radius:50%;
+    background:var(--accent); color:var(--accent-ink); display:flex; align-items:center; justify-content:center;
+    font-size:1.8rem; box-shadow:0 10px 30px -8px color-mix(in oklab, var(--accent) 60%, transparent);
+  }
+  .eyebrow{
+    font-size:0.8rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent);
+    margin:0 0 0.8rem;
+  }
+  h1{ font-family:var(--font-display); font-weight:700; font-size:clamp(1.8rem,5vw,2.6rem); margin:0 0 1rem; line-height:1.15; }
+  p{ color:var(--ink-soft); margin:0 0 1rem; }
+  .cover{ width:9rem; margin:2rem auto; border-radius:10px; box-shadow:0 20px 50px -12px rgba(0,0,0,0.5); display:block; }
+  .steps{
+    text-align:left; background:color-mix(in oklab, var(--ink) 6%, transparent);
+    border:1px solid color-mix(in oklab, var(--ink) 14%, transparent); border-radius:14px;
+    padding:1.4rem 1.6rem; margin:2rem 0; display:grid; gap:0.9rem; font-size:0.95rem;
+  }
+  .steps li{ color:var(--ink-soft); }
+  .links{ display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap; margin-top:2rem; }
+  .links a{
+    display:inline-flex; align-items:center; gap:0.5em; text-decoration:none;
+    font-size:0.9rem; color:var(--ink); border:1px solid color-mix(in oklab, var(--ink) 22%, transparent);
+    padding:0.65em 1.3em; border-radius:999px; transition:all 200ms ease;
+  }
+  .links a:hover{ border-color:var(--accent); color:var(--accent); }
+  .fine{ font-size:0.82rem; color:var(--ink-soft); margin-top:2.5rem; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="stamp" aria-hidden="true">✓</div>
+    <p class="eyebrow">Zamówienie przyjęte</p>
+    <h1>Dziękujemy! Twój ebook już do Ciebie leci.</h1>
+    <p>Na podany przy zakupie adres e-mail wysłaliśmy wiadomość z linkiem do pobrania <em>„Biegaj wolno, dojdź daleko"</em>. Zwykle dociera w ciągu kilku minut.</p>
+
+    <img class="cover" src="assets/cover.jpg" alt="Okładka ebooka Biegaj wolno, dojdź daleko">
+
+    <ul class="steps">
+      <li>📬 Sprawdź skrzynkę odbiorczą — a jeśli maila nie widać po 10 minutach, zajrzyj do folderu „Spam" lub „Oferty".</li>
+      <li>📖 Zacznij od Wstępu i Rozdziału 1 — tam jest fundament, na którym opiera się cała reszta.</li>
+      <li>✉️ Coś poszło nie tak z zakupem albo mailem? Napisz na <a href="mailto:biegajwolno@gmail.com" style="color:var(--accent);">biegajwolno@gmail.com</a>.</li>
+    </ul>
+
+    <div class="links">
+      <a href="../index.html">Wróć na stronę główną</a>
+      <a href="https://instagram.com/biegajwolno">Instagram @biegajwolno</a>
+      <a href="https://biegajwolno.pl/7-dni">Darmowy plan na 7 dni</a>
+    </div>
+
+    <p class="fine">Uczymy kobiety biegać wolno, żeby mogły biegać długo.</p>
+  </div>
+</body>
+</html>
