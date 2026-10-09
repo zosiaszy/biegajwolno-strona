@@ -4,8 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Biegaj wolno, dojdź daleko — ebook dla początkujących biegaczek</title>
-<meta name="description" content="Ebook, który prowadzi Cię krok po kroku od pierwszego truchtu do półmaratonu. 109 stron, 9 rozdziałów, 60 źródeł naukowych. Cena premierowa 49 zł (zamiast 59 zł).">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23172619'/%3E%3Cpath d='M5,22.5 C5,19.5 7.5,17.3 10.5,16.5 L18,14.3 C20,13.7 22,14 23.5,15.3 L26.5,17.8 C27.6,18.7 27.4,20.4 26.1,21 L24.5,21.7 L24.5,23 C24.5,24 23.7,24.8 22.7,24.8 L7,24.8 C5.9,24.8 5,23.9 5,22.8 Z' fill='%23D2A24C'/%3E%3Cpath d='M18.5,15.5 L19.5,17.5' stroke='%23172619' stroke-width='0.9' stroke-linecap='round'/%3E%3Cpath d='M20.5,15.9 L21.4,17.7' stroke='%23172619' stroke-width='0.9' stroke-linecap='round'/%3E%3Cpath d='M22.4,16.6 L23.1,18.1' stroke='%23172619' stroke-width='0.9' stroke-linecap='round'/%3E%3C/svg%3E">
+<meta name="description" content="Ebook, który prowadzi Cię krok po kroku od pierwszego truchtu do półmaratonu. 107 stron, 9 rozdziałów, gotowe plany, bonusowy tracker w Google Sheets i około 60 źródeł naukowych. Cena startowa 39 zł (zamiast 59 zł).">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,7 +24,7 @@
     --ok:#2C7A45; --ok-bg:#DCE6DA; --no:#D33F2E; --no-bg:#F4E4DF;
     --bar-h:72px;
   }
-  @media (max-width:600px){ :root{ --bar-h:92px; } }
+  @media (max-width:600px){ :root{ --bar-h:84px; } }
 
   ::selection{background:var(--sc-accent);color:var(--sc-accent-ink);}
   body{ padding-top:var(--bar-h); }
@@ -144,10 +147,15 @@
     font-size:var(--sc-t-sm); font-weight:700; padding:0.55em 1.1em;
   }
   @media (max-width:600px){
-    #promoBar .wrap{ gap:var(--sc-3); }
-    #promoBar .msg{ font-size:0.72rem; flex:0 0 100%; text-align:center; }
+    #promoBar .wrap{ gap:8px; flex-direction:column; justify-content:center; padding-inline:16px; }
+    #promoBar .msg{ font-size:0.74rem; white-space:normal; justify-content:center; text-align:center; line-height:1.25; }
     #promoBar .cta{ display:none; }
+    .countdown{ gap:6px; width:100%; max-width:19rem; }
+    .countdown .cell{ flex:1 1 0; min-width:0; padding:5px 4px; border-radius:7px; }
+    .countdown .cell b{ font-size:1.05rem; }
+    .countdown .cell span{ font-size:0.54rem; }
   }
+
 
   /* ================= CART ================= */
   #cartBtn{
@@ -212,9 +220,9 @@
   .hero{ position:relative; padding:var(--sc-6) 0 var(--sc-5); overflow:clip; }
   .hero__wrap{ display:grid; grid-template-columns:1.15fr 1fr; gap:var(--sc-6); align-items:center; }
   @media (max-width:960px){ .hero__wrap{ grid-template-columns:1fr; gap:var(--sc-5); } }
-  .hero h1{ font-size:var(--sc-t-3xl); line-height:var(--sc-leading-tight); letter-spacing:var(--sc-track-tight); margin:0 0 var(--sc-3); }
-  @media (max-width:700px){ .hero h1{ font-size:var(--sc-t-2xl); } }
-  .hero .lede{ color:var(--sc-ink-soft); max-width:36rem; margin:0 0 var(--sc-3); }
+  .hero h1{ font-size:clamp(2.2rem, 1.15rem + 3.2vw, 3.7rem); line-height:1.04; letter-spacing:var(--sc-track-tight); margin:0 0 var(--sc-3); }
+  @media (max-width:700px){ .hero h1{ font-size:2.15rem; } }
+  .hero .lede{ color:var(--sc-ink-soft); max-width:37rem; margin:0 0 var(--sc-3); font-size:0.97rem; line-height:1.55; }
   .hero .kicker{ font-size:var(--sc-t-base); margin-bottom:0.4em; }
   .lede-strong{ font-weight:700; color:var(--sc-ink); max-width:34rem; margin:0 0 var(--sc-4); }
   .hero .cta-row{ display:flex; gap:var(--sc-3); flex-wrap:wrap; margin:var(--sc-4) 0; }
@@ -442,6 +450,129 @@
   .footer-links a{ color:var(--sc-ink-soft); text-decoration:underline; text-underline-offset:0.2em; transition:color 160ms var(--sc-ease-out); }
   .footer-links a:hover{ color:var(--sc-accent); }
   .footer-links .sep{ margin:0 0.6em; opacity:0.5; }
+  /* ---- v3: kotwice, nagłówki sekcji, mikrocopy, bonus ---- */
+  body{ overflow-x:clip; }
+  #oferta{ overflow-x:clip; }
+  html{ scroll-padding-top:calc(var(--bar-h) + 8px); }
+  .sc-section .sc-display--lg{ font-size:clamp(2rem, 1.25rem + 2.6vw, 3.3rem); line-height:1.1; letter-spacing:-0.025em; }
+  .sc-section .sc-display--md{ font-size:clamp(1.8rem, 1.2rem + 2vw, 2.7rem); line-height:1.12; }
+  .cta-micro{ font-size:var(--sc-t-xs); color:var(--sc-ink-soft); margin:0; }
+  .chip--bonus{ border-color:var(--sc-accent); background:color-mix(in oklab, var(--sc-accent) 18%, transparent); }
+  #cookieBar{ bottom:max(16px, env(safe-area-inset-bottom)); }
+
+  .gets-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:var(--sc-4); margin-top:var(--sc-6); }
+  @media (max-width:760px){ .gets-grid{ grid-template-columns:1fr; } }
+  .get-card{
+    position:relative; display:flex; flex-direction:column; background:#fff; color:var(--paper-ink);
+    border:1px solid color-mix(in oklab, var(--paper-ink) 12%, transparent); border-radius:var(--sc-r-md);
+    padding:var(--sc-5); box-shadow:var(--sc-e1);
+    transition:transform 240ms var(--sc-ease-out), box-shadow 240ms var(--sc-ease-out);
+  }
+  .get-card:hover{ transform:translateY(-3px); box-shadow:var(--sc-e2); }
+  .get-num{ font-family:var(--sc-font-display); font-size:var(--sc-t-lg); color:var(--ok); display:block; margin-bottom:var(--sc-2); }
+  .get-card h3{ font-family:var(--sc-font-display); font-size:var(--sc-t-lg); line-height:1.2; margin:0 0 var(--sc-2); color:var(--paper-ink); }
+  .get-card p{ margin:0; font-size:var(--sc-t-sm); color:var(--paper-ink-soft); }
+  .get-card--bonus{
+    border-color:var(--sc-accent); background:linear-gradient(160deg, #fff, #FBF3E1);
+    box-shadow:0 12px 30px -16px color-mix(in oklab, var(--sc-accent) 70%, transparent), var(--sc-e1);
+  }
+  .get-badge{
+    position:absolute; top:var(--sc-4); right:var(--sc-4); font-size:0.68rem; font-weight:800; letter-spacing:0.1em;
+    text-transform:uppercase; background:var(--sc-accent); color:var(--sc-accent-ink); padding:0.3em 0.8em; border-radius:999px;
+  }
+  .get-thumb{ width:4.6rem; margin-top:var(--sc-4); border-radius:5px; box-shadow:var(--sc-e2); }
+  .sheet{ margin-top:var(--sc-4); border:1px solid #CFE0D4; border-radius:8px; overflow:hidden; background:#fff; box-shadow:var(--sc-e1); font-size:0.72rem; color:#2b2b2b; }
+  .sheet__bar{ padding:0.45em 0.8em; background:var(--ok); color:#fff; font-weight:600; }
+  .sheet table{ width:100%; border-collapse:collapse; }
+  .sheet th, .sheet td{ padding:0.42em 0.7em; text-align:left; border-bottom:1px solid #E4EDE6; border-right:1px solid #E4EDE6; }
+  .sheet th{ background:#F1F6F2; font-weight:700; color:#41564a; }
+  .sheet td:last-child, .sheet th:last-child{ border-right:0; text-align:center; }
+  .sheet tr:last-child td{ border-bottom:0; }
+  .sheet .tick{ color:var(--ok); font-weight:800; }
+  .sheet .dots{ letter-spacing:0.12em; color:var(--sc-accent); }
+  /* ---- r4: hero, pakiet, instagram, wyrównania ---- */
+  .bonus-line{ margin:var(--sc-3) 0 var(--sc-4); font-size:var(--sc-t-sm); color:var(--sc-accent); border:1px dashed color-mix(in oklab, var(--sc-accent) 70%, transparent); background:color-mix(in oklab, var(--sc-accent) 10%, transparent); display:inline-block; padding:0.5em 1em; border-radius:999px; }
+  .bonus-line b{ letter-spacing:0.08em; }
+  .gets-sub{ max-width:36rem; margin:var(--sc-3) 0 0; color:var(--paper-ink-soft); }
+  .gets-grid{ grid-template-columns:repeat(3,1fr); align-items:stretch; }
+  @media (max-width:980px){ .gets-grid{ grid-template-columns:1fr; max-width:34rem; margin-inline:auto; } }
+  .get-visual{ margin-top:auto; padding-top:var(--sc-5); display:flex; justify-content:center; align-items:flex-end; }
+  .get-visual--book{ position:relative; min-height:18rem; }
+  .get-visual--book img{ border-radius:6px; box-shadow:0 18px 36px -12px rgba(0,0,0,.45); }
+  .get-visual--book .gb1{ width:12.5rem; position:relative; z-index:2; }
+  .get-visual--book .gb2{ position:absolute; width:9.6rem; right:calc(50% - 11.4rem); bottom:0.2rem; transform:rotate(6deg); z-index:1; }
+  .get-badge-line{ margin-top:var(--sc-4) !important; font-size:0.72rem !important; font-weight:700; letter-spacing:0.04em; text-align:center; color:var(--ok) !important; }
+  .get-card--bonus .get-badge, .get-card--card .get-badge{ right:var(--sc-4); }
+  .tracker{ width:100%; max-width:19rem; background:#fff; border-radius:12px; overflow:hidden; border:1px solid #CFE0D4; box-shadow:0 18px 34px -14px rgba(23,38,25,.4); font-size:0.74rem; color:#26332a; }
+  .tracker__head{ display:flex; justify-content:space-between; align-items:center; background:linear-gradient(135deg,#2C7A45,#1E5C33); color:#fff; padding:0.75em 1em; font-weight:700; }
+  .tracker__prog{ background:rgba(255,255,255,.2); padding:0.15em 0.7em; border-radius:999px; font-family:var(--sc-font-display); }
+  .tracker__bar{ height:6px; background:#E4EDE6; } .tracker__bar i{ display:block; height:100%; background:var(--sc-accent); border-radius:0 4px 4px 0; }
+  .tracker__rows{ padding:0.4em 0.6em; }
+  .trow{ display:flex; align-items:center; gap:0.7em; padding:0.42em 0.4em; border-bottom:1px solid #EDF3EE; }
+  .trow:last-child{ border-bottom:0; }
+  .cb{ width:1.25em; height:1.25em; border-radius:4px; border:1.5px solid #B7C9BC; display:inline-flex; align-items:center; justify-content:center; font-size:0.8em; color:#fff; flex:none; }
+  .trow.done .cb{ background:var(--ok); border-color:var(--ok); }
+  .tn{ flex:1; } .trow.done .tn{ color:#4b5d51; } .mood{ font-size:1.05em; }
+  .tracker__foot{ padding:0.6em 1em; background:#F1F6F2; color:#41564a; font-size:0.7rem; }
+  .a4{ width:13.5rem; aspect-ratio:210/297; background:#fff; border-radius:3px; box-shadow:0 18px 34px -12px rgba(0,0,0,.4), 0 0 0 1px rgba(0,0,0,.06); padding:1.1rem 1rem; transform:rotate(-2.5deg); display:flex; flex-direction:column; }
+  .a4__title{ font-family:var(--sc-font-display); font-weight:700; font-size:1.05rem; color:var(--sc-canvas); }
+  .a4__sub{ font-size:0.55rem; color:var(--paper-ink-soft); margin-top:0.15rem; }
+  .a4__rule{ height:2px; background:var(--sc-accent); margin:0.6rem 0; width:40%; }
+  .a4 ul{ list-style:none; margin:0; padding:0; display:grid; gap:0.55rem; }
+  .a4 li{ display:flex; align-items:center; gap:0.45rem; } .a4 li span{ width:0.7rem; height:0.7rem; border-radius:50%; background:var(--ok); flex:none; opacity:.85; }
+  .a4 li i, .a4__box i{ display:block; height:0.34rem; background:#DDD6C4; border-radius:3px; }
+  .a4__box{ margin-top:auto; background:#F6F0E2; border-radius:4px; padding:0.6rem; display:grid; gap:0.4rem; }
+  .ig{ text-align:center; background:var(--sc-surface); }
+  .ig__wrap{ max-width:40rem; display:grid; gap:var(--sc-4); justify-items:center; }
+  .ig__wrap h2{ margin:0; } .ig__text{ margin:0; color:var(--sc-ink-soft); }
+  .ig__text b{ color:var(--sc-ink); }
+  .ig__icon{ width:96px; height:96px; border-radius:26px; display:flex; align-items:center; justify-content:center; color:#fff;
+    background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); box-shadow:0 14px 34px -10px rgba(214,36,159,.55); transition:transform 220ms var(--sc-ease-out); }
+  .ig__icon:hover{ transform:translateY(-3px) scale(1.04); }
+  .ig__handle{ font-family:var(--sc-font-display); font-size:var(--sc-t-xl); color:var(--sc-accent); text-decoration:none; }
+  .ig__handle:hover{ text-decoration:underline; }
+  .offer-sub{ margin:var(--sc-2) 0 var(--sc-4); font-size:var(--sc-t-sm); color:var(--sc-accent); font-weight:600; letter-spacing:0.03em; }
+  .final-cta__body .final-pack{ color:var(--sc-ink); font-weight:600; }
+  .final-cta__body .final-sign{ font-family:var(--sc-font-display); font-size:var(--sc-t-xl); margin:var(--sc-5) 0 0; color:var(--sc-ink); }
+  .fit-grid{ align-items:stretch; }
+  .fit-card{ display:flex; flex-direction:column; justify-content:flex-start; padding:var(--sc-6); }
+  .fit-card.no ul{ gap:var(--sc-5); }
+  .fit-card.no li{ padding-top:var(--sc-5); }
+  .fit-card.no li:first-of-type{ padding-top:0; }
+  /* ---- r5: mobile hero — okładka mniejsza na środku, pod nią tekst i zakup ---- */
+  @media (max-width:960px){
+    .hero{ padding-top:var(--sc-5); }
+    .hero__wrap > .hero__art{ order:-1; }
+    .hero__wrap{ text-align:center; justify-items:center; }
+    .hero .fan{ width:min(64vw, 15rem); }
+    .hero .hero__glow{ width:110%; }
+    .hero .eyebrow, .hero .kicker, .hero .lede, .hero .lede-strong{ margin-inline:auto; }
+    .hero .chip-row{ justify-content:center; }
+    .hero .cta-row{ justify-content:center; }
+    .hero .cta-row .btn{ flex:1 1 100%; white-space:normal; text-align:center; }
+    .hero .bonus-line{ display:block; max-width:26rem; margin-inline:auto; }
+    .hero .cta-micro{ text-align:center; }
+  }
+  @media (max-width:600px){
+    .hero{ padding-bottom:var(--sc-4); }
+    .hero .fan{ width:min(58vw, 13rem); }
+    .hero .eyebrow{ font-size:0.72rem; letter-spacing:0.08em; }
+    .hero h1{ font-size:clamp(1.9rem, 8.4vw, 2.15rem); }
+    .hero .kicker{ font-size:0.95rem; }
+    .hero .lede{ font-size:0.94rem; }
+    .hero .chip-row{ gap:8px; }
+    .hero .chip{ font-size:0.78rem; padding:0.4em 0.8em; }
+    .peek-row{ gap:var(--sc-4); margin-top:var(--sc-5); }
+    .peek img{ width:5.2rem; }
+    .sc-wrap{ padding-inline:18px; }
+    #cartBtn{ top:calc(var(--bar-h) + 10px); right:14px; }
+  }
+  @media (max-width:600px){
+    .get-visual--book .gb1{ width:10.5rem; }
+    .get-visual--book .gb2{ width:7.6rem; right:calc(50% - 8.6rem); }
+    .get-visual--book{ min-height:15.5rem; }
+    .get-card{ padding:var(--sc-4); }
+  }
 </style>
 </head>
 <body>
@@ -451,14 +582,14 @@
 
 <div id="promoBar">
   <div class="wrap">
-    <p class="msg"><span class="dot" aria-hidden="true"></span>Cena premierowa <s class="was">59 zł</s> <b>49 zł</b> tylko przez:</p>
+    <p class="msg"><span class="dot" aria-hidden="true"></span>Cena startowa <s class="was">59 zł</s> <b>39 zł</b> tylko przez:</p>
     <div class="countdown" id="countdown" aria-label="Pozostały czas promocji">
       <div class="cell"><b id="cdD">00</b><span>dni</span></div>
       <div class="cell"><b id="cdH">00</b><span>godz</span></div>
       <div class="cell"><b id="cdM">00</b><span>min</span></div>
       <div class="cell"><b id="cdS">00</b><span>sek</span></div>
     </div>
-    <a class="btn cta" href="#oferta">Kup ebook za 49 zł</a>
+    <a class="btn cta" href="#oferta">Kup ebook za 39 zł</a>
   </div>
 </div>
 
@@ -479,12 +610,12 @@
     <p class="cart-empty">Koszyk jest pusty — dodaj ebook, żeby przejść do płatności.</p>
   </div>
   <div class="cart-foot" id="cartFoot" style="display:none;">
-    <div class="cart-total"><span>Razem</span><span>49 zł</span></div>
+    <div class="cart-total"><span>Razem</span><span>39 zł</span></div>
     <label class="agree-row">
       <input type="checkbox" id="agreeTerms">
       <span>Akceptuję <a href="ebook/regulamin.html" target="_blank" rel="noopener">regulamin</a> i <a href="ebook/polityka-prywatnosci.html" target="_blank" rel="noopener">politykę prywatności</a>, w tym informację o utracie prawa odstąpienia od umowy po natychmiastowym udostępnieniu treści cyfrowej.</span>
     </label>
-    <a class="btn btn--block" href="https://buy.stripe.com/7sYdR2glJ7jB8IJ6qx4ow00" id="checkoutLink" aria-disabled="true">Przejdź do płatności</a>
+    <a class="btn btn--block" href="https://buy.stripe.com/9B6aEQd9x1ZhcYZdSZ4ow01" id="checkoutLink" aria-disabled="true">Przejdź do płatności</a>
     <p class="fine" style="text-align:center;">PDF · dostęp po zakupie · link na e-mail</p>
   </div>
 </aside>
@@ -511,30 +642,32 @@
 
 <main id="top">
 
-  <!-- 0 · HERO: produkt od razu na pierwszym ekranie -->
+  <!-- 0 · HERO -->
   <section class="hero" data-chapter="0" data-sc-drift="#172619">
     <div class="sc-wrap hero__wrap">
       <div data-sc-in>
         <p class="eyebrow">Przewodnik dla początkujących biegaczek</p>
-        <p class="kicker">Chcesz zacząć biegać, ale nie wiesz jak?</p>
+        <p class="kicker">Chcesz zacząć biegać, ale nie wiesz, od czego zacząć?</p>
         <h1 class="sc-display">Załóż buty. Wyjdź.<br>Resztę masz rozpisaną.</h1>
-        <p class="lede"><em class="voice">„Biegaj wolno, dojdź daleko"</em> prowadzi Cię krok po kroku od pierwszego truchtu aż do 5, 10 i 21,1 km — bez zgadywania, czy biegniesz dobrze, bez wstydu, że jesteś „za wolna", i bez planu, który zakłada, że już masz kondycję.</p>
+        <p class="lede"><em class="voice">„Biegaj wolno, dojdź daleko”</em> prowadzi Cię krok po kroku od pierwszego truchtu do 5, 10 i 21,1&nbsp;km — bez presji na tempo i bez zgadywania, co robić dalej.</p>
         <p class="lede-strong">Po prostu otwierasz ebook i wiesz, co robić dalej.</p>
         <div class="chip-row">
           <span class="chip">9 rozdziałów</span>
           <span class="chip">Plany 5 · 10 · 21,1 km</span>
-          <span class="chip">60 źródeł naukowych</span>
+          <span class="chip">~60 źródeł naukowych</span>
         </div>
+        <p class="bonus-line">🎁 <b>BONUS:</b> tracker startu w Google Sheets + karta startowa</p>
         <div class="cta-row">
-          <button class="btn btn--glow" id="addToCartHero">Chcę zacząć biegać — kupuję za 49 zł</button>
+          <button class="btn btn--glow" id="addToCartHero">Chcę zacząć biegać — kupuję za 39 zł</button>
           <a class="btn btn--ghost" href="#spis">Zobacz, co znajdziesz w środku</a>
         </div>
+        <p class="cta-micro">Dostęp po zakupie · link wysyłamy na e-mail</p>
       </div>
       <div class="hero__art">
         <div class="hero__glow" aria-hidden="true"></div>
         <div class="fan">
           <img class="p1" src="ebook/assets/toc.jpg" alt="">
-          <img class="p2" src="ebook/assets/chapter-opener.jpg" alt="">
+          <img class="p2" src="ebook/assets/plan.jpg" alt="">
           <img class="p3" src="ebook/assets/cover.jpg" alt="Okładka ebooka Biegaj wolno, dojdź daleko">
         </div>
       </div>
@@ -543,30 +676,32 @@
       <div class="peek-row">
         <div class="peek" data-full="ebook/assets/cover.jpg"><img src="ebook/assets/cover.jpg" alt="Okładka"><span>Okładka</span></div>
         <div class="peek" data-full="ebook/assets/toc.jpg"><img src="ebook/assets/toc.jpg" alt="Spis treści"><span>Spis treści</span></div>
-        <div class="peek" data-full="ebook/assets/chapter-opener.jpg"><img src="ebook/assets/chapter-opener.jpg" alt="Rozdział 1"><span>Rozdział 1</span></div>
-        <div class="peek" data-full="ebook/assets/intro.jpg"><img src="ebook/assets/intro.jpg" alt="Wstęp"><span>Wstęp</span></div>
+        <div class="peek" data-full="ebook/assets/chapter-1.jpg"><img src="ebook/assets/chapter-1.jpg" alt="Rozdział 1"><span>Rozdział 1</span></div>
+        <div class="peek" data-full="ebook/assets/chapter-2.jpg"><img src="ebook/assets/chapter-2.jpg" alt="Rozdział o wolnym bieganiu"><span>Wolne bieganie</span></div>
+        <div class="peek" data-full="ebook/assets/chapter-4.jpg"><img src="ebook/assets/chapter-4.jpg" alt="Rozdział o sprzęcie"><span>Sprzęt</span></div>
+        <div class="peek" data-full="ebook/assets/plan.jpg"><img src="ebook/assets/plan.jpg" alt="Plan treningowy"><span>Plan treningowy</span></div>
       </div>
     </div>
   </section>
 
-  <!-- 1 · CO ZNAJDZIESZ W ŚRODKU (od razu po hero, wyśrodkowany stepper) -->
+  <!-- 1 · CO ZNAJDZIESZ W ŚRODKU (interaktywny selektor rozdziałów) -->
   <section class="sc-section paper" id="spis" data-chapter="1" data-sc-drift="#F6F0E2">
     <div class="sc-wrap" style="text-align:center;">
-      <p class="eyebrow" data-sc-in>Co jest w środku</p>
-      <h2 class="sc-display sc-display--md" data-sc-in style="max-width:30rem; margin-inline:auto;">109 stron, dziewięć rozdziałów.</h2>
+      <p class="eyebrow" data-sc-in>Co znajdziesz w środku?</p>
+      <h2 class="sc-display sc-display--md" data-sc-in style="max-width:30rem; margin-inline:auto;">107 stron, dziewięć rozdziałów.</h2>
       <p class="sc-body" data-sc-in style="max-width:30rem; margin:var(--sc-2) auto 0;">Kliknij numer, żeby zobaczyć, co jest w środku.</p>
       <div class="toc-app" data-sc-in>
         <nav class="toc-chips" id="tocRail" aria-label="Spis treści"></nav>
         <div class="toc-panel" id="tocPanel"></div>
-        <p class="toc-tagline">109 stron. Zero nadęcia. Same rzeczy, które pomagają zacząć i nie odpuścić po tygodniu.</p>
+        <p class="toc-tagline">107 stron. Zero nadęcia. Konkretna droga od pierwszego wyjścia do regularnego biegania.</p>
         <div style="margin-top:var(--sc-7);">
-          <a class="btn" href="#oferta">Chcę mieć plan i zacząć — 49 zł</a>
+          <a class="btn" href="#oferta">Chcę mieć plan i zacząć — 39 zł</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 2 · DLA KOGO — od razu pod spisem -->
+  <!-- 2 · DLA KOGO -->
   <section class="sc-section paper" data-chapter="2" data-sc-drift="#F6F0E2" style="padding-top:0;">
     <div class="sc-wrap">
       <p class="eyebrow" data-sc-in>Zanim kupisz</p>
@@ -576,9 +711,9 @@
           <h3>Tak — prawdopodobnie właśnie tego szukasz</h3>
           <ul>
             <li><span class="mark">✓</span>Zaczynasz od zera albo wracasz do biegania po długiej przerwie.</li>
-            <li><span class="mark">✓</span>Po chwili biegu łapiesz zadyszkę i zastanawiasz się, czy w ogóle „nadajesz się" do biegania.</li>
+            <li><span class="mark">✓</span>Po chwili biegu łapiesz zadyszkę i zastanawiasz się, czy w ogóle „nadajesz się” do biegania.</li>
             <li><span class="mark">✓</span>Próbowałaś już wcześniej, ale zaczynałaś za szybko, za mocno albo bez planu — i kończyło się odpuszczeniem.</li>
-            <li><span class="mark">✓</span>Chcesz wiedzieć dokładnie, co robić krok po kroku, zamiast po raz kolejny usłyszeć „po prostu zacznij biegać".</li>
+            <li><span class="mark">✓</span>Chcesz wiedzieć dokładnie, co robić krok po kroku, zamiast po raz kolejny usłyszeć „po prostu zacznij biegać”.</li>
             <li><span class="mark">✓</span>Chcesz biegać dla siebie — bez presji na tempo, wynik i udowadnianie czegokolwiek komukolwiek.</li>
           </ul>
         </div>
@@ -587,7 +722,7 @@
           <ul>
             <li><span class="mark">✕</span>Biegasz już regularnie i szukasz sposobu na poprawienie konkretnego wyniku.</li>
             <li><span class="mark">✕</span>Trenujesz pod szybkie zawody i zależy Ci przede wszystkim na tempie.</li>
-            <li><span class="mark">✕</span>Szukasz zaawansowanych jednostek treningowych opartych na strefach tętna, tempach i analizie wyników.</li>
+            <li><span class="mark">✕</span>Szukasz zaawansowanych jednostek treningowych opartych na tempach startowych, interwałach i szczegółowej analizie wyników.</li>
           </ul>
         </div>
       </div>
@@ -595,65 +730,146 @@
     </div>
   </section>
 
-  <!-- 3 · DLACZEGO WOLNO DZIAŁA — krótko, trzy jasne karty -->
+  <!-- 3 · DLACZEGO WOLNO -->
   <section class="sc-section" data-chapter="3" data-sc-drift="#12200F" style="padding-block:var(--sc-8);">
     <div class="sc-wrap">
       <p class="kicker" data-sc-in>Nie potrzebujesz więcej motywacji. Potrzebujesz dobrego początku.</p>
-      <h2 class="sc-display sc-display--lg" data-sc-in style="max-width:34rem;">Dlaczego „wolno" naprawdę ma sens?</h2>
+      <h2 class="sc-display sc-display--lg" data-sc-in style="max-width:34rem;">Dlaczego „wolno” naprawdę ma sens?</h2>
       <div class="cred-grid" data-sc-in data-sc-stagger="90">
         <div class="cred-card">
           <span class="cred-icon" aria-hidden="true">🔦</span>
-          <p class="claim">Prawdopodobnie inni zwracają na Ciebie znacznie mniej uwagi, niż podpowiada Ci głowa.</p>
-          <p class="detail">To zjawisko psychologia opisuje jako efekt reflektora — mamy tendencję do przeceniania tego, jak bardzo inni zauważają nasze zachowanie i wygląd.</p>
-          <p class="cite">Gilovich, Medvec &amp; Savitsky, Cornell, 2000</p>
+          <p class="claim">Prawdopodobnie inni zwracają na Ciebie mniej uwagi, niż podpowiada Ci głowa.</p>
+          <p class="detail">Psychologia opisuje to jako efekt reflektora — mamy tendencję do przeceniania tego, jak bardzo inni zauważają nasze zachowanie i wygląd.</p>
+          <p class="cite">Gilovich, Medvec &amp; Savitsky, 2000</p>
         </div>
         <div class="cred-card">
           <span class="cred-icon" aria-hidden="true">💛</span>
-          <p class="claim">Łagodniejsze podejście do siebie może pomóc Ci wrócić po słabszym dniu.</p>
-          <p class="detail">Bo jeden opuszczony trening nie oznacza porażki. Problem zaczyna się dopiero wtedy, kiedy po jednym gorszym dniu uznajesz, że „znowu Ci nie wyszło".</p>
+          <p class="claim">Łagodniejsze podejście do siebie może ułatwić powrót po słabszym dniu.</p>
+          <p class="detail">Jeden opuszczony trening nie oznacza porażki. Znacznie ważniejsze jest to, co robisz później — czy wracasz, czy po jednym gorszym dniu rezygnujesz z całego planu.</p>
           <p class="cite">Neff &amp; Germer, Journal of Clinical Psychology, 2013</p>
         </div>
         <div class="cred-card">
           <span class="cred-icon" aria-hidden="true">📚</span>
-          <p class="claim">To nie jest 109 stron motywacyjnych haseł.</p>
-          <p class="detail">Ebook powstał w oparciu o 60 źródeł naukowych, które możesz samodzielnie sprawdzić.</p>
-          <p class="cite">Pełną bibliografię znajdziesz w rozdziale 9 od strony 100.</p>
+          <p class="claim">To nie jest 107 stron motywacyjnych haseł.</p>
+          <p class="detail">Ebook powstał w oparciu o około 60 źródeł naukowych, które możesz samodzielnie sprawdzić.</p>
+          <p class="cite">Pełną bibliografię znajdziesz w rozdziale 9.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 4 · OFERTA -->
-  <section class="sc-section" id="oferta" data-chapter="4" data-sc-drift="#12200F">
+  <!-- 4 · CO DOSTAJESZ PO ZAKUPIE -->
+  <section class="sc-section paper" data-chapter="4" data-sc-drift="#F6F0E2" style="padding-block:var(--sc-8);">
+    <div class="sc-wrap">
+      <p class="eyebrow" data-sc-in>Co dostajesz</p>
+      <h2 class="sc-display sc-display--lg" data-sc-in style="max-width:38rem;">W pakiecie dostajesz wszystko, czego potrzebujesz na start</h2>
+      <p class="sc-body gets-sub" data-sc-in>Ebook pokazuje Ci, co robić. Dwa bonusy pomagają naprawdę zacząć i trzymać się planu.</p>
+      <div class="gets-grid" data-sc-in data-sc-stagger="80">
+        <div class="get-card get-card--book">
+          <span class="get-num">01</span>
+          <h3>Ebook „Biegaj wolno, dojdź daleko”</h3>
+          <p>107 stron wiedzy, gotowych planów i praktycznych wskazówek — od pierwszego truchtu aż do 21,1&nbsp;km.</p>
+          <div class="get-visual get-visual--book">
+            <img class="gb2" src="ebook/assets/toc.jpg" alt="" loading="lazy">
+            <img class="gb1" src="ebook/assets/cover.jpg" alt="Okładka ebooka Biegaj wolno, dojdź daleko" loading="lazy">
+          </div>
+          <p class="get-badge-line">9 rozdziałów · plany 5 / 10 / 21,1 km · bibliografia</p>
+        </div>
+        <div class="get-card get-card--bonus">
+          <span class="get-badge">Bonus</span>
+          <span class="get-num">02</span>
+          <h3>Tracker startu w Google Sheets</h3>
+          <p>Zaznaczasz trening, samopoczucie i ciągłość planu — bez budowania własnego arkusza od zera.</p>
+          <div class="get-visual">
+            <div class="tracker" aria-hidden="true">
+              <div class="tracker__head"><span class="tracker__title">Tracker startu</span><span class="tracker__prog">6/9</span></div>
+              <div class="tracker__bar"><i style="width:66%"></i></div>
+              <div class="tracker__rows">
+                <div class="trow done"><span class="cb">✓</span><span class="tn">Tydzień 1 · Sesja 1</span><span class="mood">😊</span></div>
+                <div class="trow done"><span class="cb">✓</span><span class="tn">Tydzień 1 · Sesja 2</span><span class="mood">🙂</span></div>
+                <div class="trow done"><span class="cb">✓</span><span class="tn">Tydzień 1 · Sesja 3</span><span class="mood">😊</span></div>
+                <div class="trow done"><span class="cb">✓</span><span class="tn">Tydzień 2 · Sesja 1</span><span class="mood">😐</span></div>
+                <div class="trow done"><span class="cb">✓</span><span class="tn">Tydzień 2 · Sesja 2</span><span class="mood">🙂</span></div>
+                <div class="trow done"><span class="cb">✓</span><span class="tn">Tydzień 2 · Sesja 3</span><span class="mood">😊</span></div>
+                <div class="trow"><span class="cb"></span><span class="tn">Tydzień 3 · Sesja 1</span><span class="mood">·</span></div>
+              </div>
+              <div class="tracker__foot">Ciągłość planu: <b>6 z 9 sesji</b></div>
+            </div>
+          </div>
+        </div>
+        <div class="get-card get-card--card">
+          <span class="get-badge">Bonus</span>
+          <span class="get-num">03</span>
+          <h3>Drukowalna karta startowa</h3>
+          <p>Najważniejsze zasady pierwszych tygodni na jednej stronie — do wydrukowania i powieszenia przy biurku albo na lodówce.</p>
+          <div class="get-visual">
+            <div class="a4" aria-hidden="true">
+              <div class="a4__title">Karta startowa</div>
+              <div class="a4__sub">Biegaj wolno, dojdź daleko</div>
+              <div class="a4__rule"></div>
+              <ul>
+                <li><span></span><i style="width:88%"></i></li>
+                <li><span></span><i style="width:72%"></i></li>
+                <li><span></span><i style="width:80%"></i></li>
+                <li><span></span><i style="width:64%"></i></li>
+                <li><span></span><i style="width:76%"></i></li>
+              </ul>
+              <div class="a4__box"><i style="width:70%"></i><i style="width:48%"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · OFERTA -->
+  <section class="sc-section" id="oferta" data-chapter="5" data-sc-drift="#12200F">
     <div class="sc-wrap offer-wrap">
       <div class="hero__art" data-sc-in style="min-height:0;">
         <div class="hero__glow" aria-hidden="true"></div>
         <div class="fan">
           <img class="p1" src="ebook/assets/toc.jpg" alt="">
-          <img class="p2" src="ebook/assets/chapter-opener.jpg" alt="">
+          <img class="p2" src="ebook/assets/plan.jpg" alt="">
           <img class="p3" src="ebook/assets/cover.jpg" alt="Okładka ebooka Biegaj wolno, dojdź daleko">
         </div>
       </div>
       <div class="offer-card" data-sc-in>
         <p class="eyebrow">Dostajesz dziś</p>
-        <h2 class="sc-display sc-display--md">Twój kompletny start w bieganie</h2>
-        <p class="price"><s class="was">59 zł</s> 49 <span>zł · jednorazowo</span></p>
+        <h2 class="sc-display sc-display--md">Wszystko, czego potrzebujesz, żeby zacząć</h2>
+        <p class="offer-sub">Ebook + tracker + karta startowa</p>
+        <p class="price"><s class="was">59 zł</s> 39 <span>zł · jednorazowo</span></p>
         <ul class="offer-list">
-          <li>109 stron — 9 rozdziałów + bonus</li>
-          <li>Plany na 5, 10 i 21,1 km</li>
-          <li>Drukowalny tracker i karta startowa</li>
-          <li>Pełna bibliografia — 60 źródeł</li>
+          <li>107 stron — 9 rozdziałów</li>
+          <li>Gotowe plany na 5, 10 i 21,1 km</li>
+          <li>Bonus: tracker startu w Google Sheets</li>
+          <li>Drukowalna karta startowa</li>
+          <li>Pełna bibliografia — około 60 źródeł</li>
         </ul>
         <div class="cta-row">
-          <button class="btn btn--glow" id="addToCartOffer">Dodaj ebook do koszyka — 49 zł</button>
+          <button class="btn btn--glow" id="addToCartOffer">Dodaj ebook do koszyka — 39 zł</button>
         </div>
-        <p class="fine">PDF · dostęp po zakupie · link otrzymasz na e-mail</p>
+        <p class="fine">PDF + bonusy · dostęp po zakupie · link otrzymasz na e-mail</p>
       </div>
     </div>
   </section>
 
-  <!-- 5 · FAQ -->
-  <section class="sc-section paper" data-chapter="5" data-sc-drift="#F6F0E2">
+  <!-- 5b · INSTAGRAM -->
+  <section class="sc-section ig" data-chapter="5" data-sc-drift="#1E3020" style="padding-block:var(--sc-8);">
+    <div class="sc-wrap ig__wrap" data-sc-in>
+      <a class="ig__icon" href="https://www.instagram.com/biegajwolno/" target="_blank" rel="noopener" aria-label="Biegaj Wolno na Instagramie">
+        <svg viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <h2 class="sc-display sc-display--md">Nie zaczynasz sama</h2>
+      <p class="ig__text">Na <b>@biegajwolno</b> rozmawiamy o spokojnym bieganiu, pierwszych treningach, zadyszce, tempie i wszystkim, czego początkujące biegaczki zwykle boją się zapytać.</p>
+      <a class="ig__handle" href="https://www.instagram.com/biegajwolno/" target="_blank" rel="noopener">@biegajwolno</a>
+      <div><a class="btn btn--ghost" href="https://www.instagram.com/biegajwolno/" target="_blank" rel="noopener">Obserwuj Biegaj Wolno na Instagramie →</a></div>
+      <!-- Miejsce na 3 miniatury postów/reelsów: odkomentuj i podmień src na prawdziwe zrzuty z profilu.
+      <div class="ig__thumbs"><a href="https://www.instagram.com/biegajwolno/" target="_blank" rel="noopener"><img src="ebook/assets/ig-1.jpg" alt=""></a> ... </div> -->
+    </div>
+  </section>
+
+  <!-- 6 · FAQ -->
+  <section class="sc-section paper" data-chapter="6" data-sc-drift="#F6F0E2">
     <div class="sc-wrap" style="max-width:44rem;">
       <p class="eyebrow" data-sc-in>Pytania</p>
       <h2 class="sc-display sc-display--lg" data-sc-in style="margin-bottom:var(--sc-6);">Masz jeszcze pytania?</h2>
@@ -664,19 +880,24 @@
         </details>
         <details>
           <summary>Czym różni się od darmowego planu na 7 dni?</summary>
-          <p>Darmowy plan może powiedzieć Ci, co zrobić przez kilka najbliższych dni. Ten ebook pokazuje Ci również dlaczego to robisz, jak dostosować start do siebie i co zrobić, kiedy pojawi się zadyszka, wstyd, brak motywacji albo pierwszy gorszy trening. Do tego dostajesz gotową drogę nie na tydzień, ale aż do 5, 10 i 21,1&nbsp;km.</p>
+          <p>Darmowy plan mówi Ci, co zrobić przez kilka najbliższych dni. Ten ebook pokazuje także, dlaczego to robisz, jak podejść do startu rozsądnie i co zrobić, kiedy pojawi się zadyszka, wstyd, brak motywacji albo pierwszy gorszy trening.</p>
+          <p>To nie jest plan na tydzień — dostajesz drogę od pierwszego truchtu przez 5 i 10&nbsp;km aż do półmaratonu.</p>
+        </details>
+        <details>
+          <summary>Co dokładnie dostanę po zakupie?</summary>
+          <p>Ebook w formacie PDF, bonusowy tracker startu w Google Sheets oraz drukowalną kartę startową. Linki otrzymasz po zakupie na adres e-mail podany podczas zamówienia.</p>
         </details>
         <details>
           <summary>W jakim formacie dostanę ebook?</summary>
-          <p>Otrzymasz ebook w formacie PDF. Po zakupie link do pliku trafi na Twój adres e-mail, więc możesz czytać go na telefonie, komputerze lub tablecie.</p>
+          <p>Ebook otrzymasz w formacie PDF. Możesz czytać go na telefonie, komputerze lub tablecie.</p>
         </details>
         <details>
           <summary>Czy dostanę plan dopasowany indywidualnie?</summary>
-          <p>Nie. Ebook nie jest indywidualną usługą trenerską. Znajdziesz w nim gotowe plany stworzone z myślą o początkujących biegaczkach oraz wskazówki, które pomogą Ci podejść do nich rozsądnie i bez niepotrzebnej presji.</p>
+          <p>Nie. To nie jest indywidualna usługa trenerska. W środku znajdziesz gotowe plany stworzone z myślą o początkujących biegaczkach oraz wskazówki, które pomogą Ci dopasować tempo progresji do własnych odczuć i możliwości.</p>
         </details>
         <details>
           <summary>Ile czasu zajmuje przeczytanie?</summary>
-          <p>Nie musisz czytać wszystkich 109 stron naraz. Możesz potraktować ebook jak przewodnik: przeczytać część potrzebną Ci na danym etapie, zacząć działać i wracać do kolejnych rozdziałów razem ze swoim postępem.</p>
+          <p>Nie musisz czytać wszystkich 107 stron naraz. Potraktuj ebook jak przewodnik: przeczytaj część potrzebną Ci teraz, zacznij działać i wracaj do kolejnych rozdziałów razem ze swoim postępem.</p>
         </details>
         <details>
           <summary>Czy to bezpieczne, jeśli mam problem zdrowotny?</summary>
@@ -686,31 +907,22 @@
     </div>
   </section>
 
-  <!-- 6 · ZAMKNIĘCIE: pełnoekranowe zdjęcie -->
-  <section class="final-cta" data-chapter="6" data-sc-drift="#172619">
+  <!-- 7 · ZAMKNIĘCIE: pełnoekranowe zdjęcie -->
+  <section class="final-cta" data-chapter="7" data-sc-drift="#172619">
     <div class="final-cta__bg" aria-hidden="true"><img src="ebook/assets/landscape.jpg" alt=""></div>
     <div class="final-cta__body" data-sc-in>
-      <h2 class="sc-display">Nie musisz najpierw zostać „biegaczką", żeby zacząć biegać.</h2>
-      <p>Nie potrzebujesz lepszej kondycji, idealnego poniedziałku ani „większej motywacji". Potrzebujesz wiedzieć, jaki zrobić pierwszy krok — a potem następny.</p>
-      <button class="btn btn--glow" id="addToCartFinal">Chcę zacząć biegać — kupuję za 49 zł</button>
+      <h2 class="sc-display">Nie musisz najpierw zostać „biegaczką”, żeby zacząć biegać.</h2>
+      <p>Potrzebujesz tylko wiedzieć, jaki zrobić pierwszy krok — a potem następny.</p>
+      <p class="final-pack">Ebook + gotowe plany + tracker w Google Sheets + karta startowa.</p>
+      <h3 class="final-sign">Ty zakładasz buty.<br>My pokazujemy Ci, co dalej.</h3>
+      <button class="btn btn--glow" id="addToCartManifesto">Tak, chcę zacząć biegać — 39 zł</button>
     </div>
   </section>
 
-  <!-- 7 · MANIFEST / REKAPITULACJA -->
-  <section class="closer" data-chapter="7" data-sc-drift="#172619">
-    <div class="sc-wrap" data-sc-in>
-      <p>„Biegaj wolno, dojdź daleko" daje Ci całą drogę rozpisaną przed Tobą — od pierwszego truchtu aż do 5, 10 i 21,1 km.</p>
-      <p class="stat-line">109 stron. 9 rozdziałów. Gotowe plany. 60 źródeł naukowych.</p>
-      <h3>Ty zakładasz buty. My pokazujemy Ci, co dalej.</h3>
-      <button class="btn btn--glow" id="addToCartManifesto">Tak, chcę zacząć biegać — kupuję za 49 zł</button>
-      <p class="fine">Cena premierowa: <s class="was">59 zł</s> 49 zł</p>
-    </div>
-  </section>
-
-  <!-- 8 · FOOTER -->
-  <footer class="site-footer" data-chapter="8" data-sc-drift="#172619">
+  <!-- 9 · FOOTER -->
+  <footer class="site-footer" data-chapter="9" data-sc-drift="#172619">
     <div class="sc-wrap">
-      <p><b>Biegaj Wolno</b> — uczymy kobiety biegać wolno, żeby mogły biegać długo.</p>
+      <p><b>Biegaj Wolno</b> — uczymy kobiety biegać spokojnie, żeby mogły biegać długo.</p>
       <p>Materiał ma charakter edukacyjny i nie zastępuje konsultacji z lekarzem.</p>
       <nav class="footer-links">
         <a href="ebook/regulamin.html">Regulamin</a><span class="sep">·</span><a href="ebook/polityka-prywatnosci.html">Polityka prywatności</a><span class="sep">·</span><a href="#" id="cookieSettingsLink">Ustawienia cookies</a><span class="sep">·</span><a href="mailto:biegajwolno@gmail.com">Kontakt</a><span class="sep">·</span><a href="https://instagram.com/biegajwolno">Instagram @biegajwolno</a>
@@ -728,17 +940,17 @@
 
   /* ---- spis treści: realne rozdziały, wersja skondensowana ---- */
   var toc = [
-    {n:"—", ico:"👟", t:"Wstęp: Zanim zawiążesz buty", s:"Jak korzystać z tej książki", p:4},
-    {n:"1", ico:"🧠", t:"Psychologia startu i przełamywanie wstydu", s:"Dowiesz się, dlaczego wydaje Ci się, że wszyscy patrzą, jak przestać porównywać się z innymi i jak zbudować nawyk biegania bez ciągłego zmuszania się do treningu.", p:7},
-    {n:"2", ico:"🔬", t:"Nauka wolnego biegania — Strefa 2 i Strefa 3", s:"Mitochondria, progi mleczanowe, metoda 80/20 i test konwersacyjny", p:15},
-    {n:"3", ico:"🌙", t:"Cykl menstruacyjny a bieganie", s:"Estrogen, progesteron, gospodarka wodna i regeneracja", p:30},
-    {n:"4", ico:"🎒", t:"Sprzętowy niezbędnik kobiecy", s:"Stanik, buty, pasy — i wszystko, co naprawdę ma znaczenie", p:40},
-    {n:"★", ico:"⭐", t:"Moje TOP gadżety", s:"Kamizelka, zegarek, okulary i dwie pary butów — z linkami", p:54},
-    {n:"5", ico:"🍎", t:"Dieta, lekkie przekąski i nawodnienie", s:"Co jeść przed, co po i jak nie dać się skurczom", p:57},
-    {n:"6", ico:"🏃‍♀️", t:"Plan treningowy na pierwsze 3 tygodnie", s:"Dziewięć wyjść, które zmienią Twoje ciało", p:70},
-    {n:"7", ico:"🏁", t:"Od pierwszej piątki do półmaratonu", s:"Od piątki, przez dziesiątkę, aż do 21,1 kilometra", p:83},
-    {n:"8", ico:"✅", t:"Habit tracker w Notion i drukowalna checklista", s:"System, który poniesie Cię, gdy zniknie entuzjazm", p:93},
-    {n:"9", ico:"📚", t:"Pełna bibliografia naukowa", s:"Wszystkie źródła, żebyś mogła sprawdzić każde zdanie", p:100}
+    {n:"—", ico:"👟", t:"Wstęp: Zanim zawiążesz buty", s:"Jak korzystać z tej książki.", p:3},
+    {n:"1", ico:"🧠", t:"Psychologia startu i przełamywanie wstydu", s:"Dowiesz się, dlaczego wydaje Ci się, że wszyscy patrzą, jak przestać porównywać się z innymi i jak zbudować nawyk biegania bez ciągłego zmuszania się do treningu.", p:5},
+    {n:"2", ico:"🔬", t:"Nauka wolnego biegania", s:"Mitochondria, progi mleczanowe, rozkład intensywności i test mowy — czyli jak naprawdę nauczyć się biegać spokojnie.", p:14},
+    {n:"3", ico:"🌙", t:"Cykl menstruacyjny a bieganie", s:"Co naprawdę wiemy o cyklu, hormonach, gospodarce wodnej, regeneracji i indywidualnych różnicach między kobietami.", p:30},
+    {n:"4", ico:"🎒", t:"Sprzętowy niezbędnik biegaczki", s:"Stanik sportowy, buty, pasy i rzeczy, które faktycznie mają znaczenie na początku.", p:40},
+    {n:"★", ico:"⭐", t:"Moje TOP gadżety", s:"Sprzęt, którego naprawdę używam — kamizelka, zegarek, okulary i buty.", p:54},
+    {n:"5", ico:"🍎", t:"Jedzenie, przekąski i nawodnienie", s:"Co jeść przed i po treningu, jak pić i kiedy naprawdę potrzebujesz elektrolitów.", p:57},
+    {n:"6", ico:"🏃‍♀️", t:"Plan treningowy na pierwsze 3 tygodnie", s:"Dziewięć spokojnych wyjść, które pozwolą Ci przejść od marszobiegu do pierwszych minut ciągłego truchtu.", p:70},
+    {n:"7", ico:"🏁", t:"Od pierwszej piątki do półmaratonu", s:"Jak stopniowo przejść od 5 km przez 10 km aż do 21,1 km — bez przeskakiwania etapów.", p:83},
+    {n:"8", ico:"✅", t:"Tracker biegania i system utrzymania nawyku", s:"Jak śledzić trening, zauważać wzorce i nie opierać całego biegania na chwilowej motywacji.", p:92},
+    {n:"9", ico:"📚", t:"Bibliografia i źródła", s:"Źródła, na których oparto najważniejsze twierdzenia w ebooku.", p:98}
   ];
   var rail = document.getElementById("tocRail");
   var panel = document.getElementById("tocPanel");
@@ -820,7 +1032,7 @@
       cartBody.innerHTML =
         '<div class="cart-item">' +
           '<img src="ebook/assets/cover.jpg" alt="">' +
-          '<div><div class="name">Biegaj wolno, dojdź daleko</div><div class="fmt">PDF · 109 stron</div></div>' +
+          '<div><div class="name">Biegaj wolno, dojdź daleko</div><div class="fmt">PDF · 107 stron</div></div>' +
         '</div>';
       cartFoot.style.display = "grid";
     }
@@ -829,7 +1041,6 @@
 
   document.getElementById("addToCartHero").addEventListener("click", addToCart);
   document.getElementById("addToCartOffer").addEventListener("click", addToCart);
-  document.getElementById("addToCartFinal").addEventListener("click", addToCart);
   document.getElementById("addToCartManifesto").addEventListener("click", addToCart);
   cartBtn.addEventListener("click", function(){ inCart ? openCart() : openCart(); });
   cartClose.addEventListener("click", closeCart);
@@ -861,13 +1072,10 @@
     });
   }
 
-  /* ---- pasek promocyjny: odliczanie (okno 48h na przeglądarkę) ---- */
-  var KEY = "bw_promo_deadline";
-  var deadline = parseInt(localStorage.getItem(KEY) || "0", 10);
-  if (!deadline || deadline < Date.now()){
-    deadline = Date.now() + 48 * 3600 * 1000;
-    try{ localStorage.setItem(KEY, String(deadline)); }catch(e){}
-  }
+  /* ---- pasek promocyjny: odliczanie do JEDNEJ stałej daty (taka sama dla wszystkich) ----
+     Start kampanii + 72h. Aby przesunąć kampanię, zmień tylko PROMO_START. */
+  var PROMO_START = new Date("2026-10-02T14:00:00+02:00").getTime();
+  var deadline = PROMO_START + 72 * 3600 * 1000;
   function pad(n){ return String(n).padStart(2,"0"); }
   function tickCountdown(){
     var diff = Math.max(0, deadline - Date.now());
